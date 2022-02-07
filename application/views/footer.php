@@ -44,7 +44,7 @@
               </div>
             </div> -->
             <div class="copy text-center">
-              <p>Copyright &copy; SMK Putra Bangsa | Created By <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">Media Digital</a></p>
+              <p>Copyright &copy; SMK Putra Bangsa | Created By <i class="fa fa-love"></i><a href="https://www.facebook.com/mediadigitalofficial">Media Digital</a></p>
             </div>
           </div>
         </footer>

@@ -7,7 +7,7 @@
       <div class="pull-right hidden-xs">
         <b>Version</b> 1.4.3
       </div>
-      <strong>Copyright &copy; SMK Putra Bangsa | Created By <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">Media Digital</a>
+      <strong>Copyright &copy; SMK Putra Bangsa | Created By <i class="fa fa-love"></i><a href="https://www.facebook.com/mediadigitalofficial">Media Digital</a></strong>
     </div>
     <!-- /.container -->
   </footer>
