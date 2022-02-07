@@ -338,7 +338,7 @@
                     <div class="overlay">
                       <div class="info">
                         <h6>Markting</h6>
-                        <h4>Cans Girl</h4>
+                        <h4></h4>
                       </div>
                       <a class="icon" data-fancybox="gallery" href="img/news/3.jpg"><i class="fa fa-eye"></i></a>
                     </div>
@@ -458,11 +458,11 @@
               <div class="item text-center">
                 <p>"<?= substr($r->TESTIMONI,0,200)?> . . . "</p>
                 <div class="img">
-                  <img src="<?= base_url('assets/img/')?>/team/1.jpg" alt="">
+                  <img src="https://www.smkpbwaru.sch.id/uploads/artikel/<?= $r->GAMBAR?>" alt="">
                 </div>
                 <div class="client-info">
                   <h5><?= $r->NAMATESTI?></h5>
-                  <h6><?= $r->JABATAN?></h6>
+                  <h6><?= $r->JABATAN.' di - '. $r->KANTOR?></h6>
                 </div>
               </div>
             </div>
