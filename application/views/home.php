@@ -89,20 +89,23 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-scroll-nav="1">Alur</a>
                 </li>
-                <li class="nav-item">
+               <!--  <li class="nav-item">
                     <a class="nav-link" href="#" data-scroll-nav="2">Daftar</a>
-                </li>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-scroll-nav="3">Pengumuman</a>
+                    <a class="nav-link" href="#" data-scroll-nav="3">Jurusan</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link" href="#" data-scroll-nav="4">Download</a>
-              </li>
+              </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-scroll-nav="5">Masuk</a>
+                    <a class="nav-link" href="#" data-scroll-nav="5">Kata Alumni</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-scroll-nav="7">Bantuan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('daftar')?>" data-scrsoll-nav="7">Daftar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= base_url('login')?>" data-scrsoll-nav="7">Login</a>
@@ -352,12 +355,12 @@
 
     <!-- =====================================
     ==== Start team -->
-      <section class="team section-padding" data-scroll-index="4">
-        <div class="container">
+    <!--   <section class="team section-padding" data-scroll-index="4">
+        <div class="container"> -->
           <!-- section-head -->
-          <div class="section-head text-center">
+         <!--  <div class="section-head text-center">
             <h2 data-text="Team"> <span>Our Team</span> </h2>
-          </div>
+          </div> -->
 
           <!-- our team -->
         <!--   <div class="row">
@@ -421,9 +424,9 @@
               </div>
             </div> -->
             <!-- end team -->
-          </div>
+         <!--  </div>
         </div>
-      </section>
+      </section> -->
 
 
     <!-- =====================================
@@ -441,7 +444,7 @@
           </div> -->
 
           <!-- clients -->
-          <div class="owl-carousel owl-theme">
+          <div class="owl-carousel owl-theme col-lg-12">
            <?php
             
             foreach($data->result() as $r)
@@ -453,7 +456,7 @@
 
             <div class="items">
               <div class="item text-center">
-                <p>"<?= substr($r->TESTIMONI,0,200)?>"</p>
+                <p>"<?= substr($r->TESTIMONI,0,200)?> . . . "</p>
                 <div class="img">
                   <img src="<?= base_url('assets/img/')?>/team/1.jpg" alt="">
                 </div>
@@ -475,50 +478,7 @@
 
     <!-- =====================================
     ==== Start blog -->
-      <section class="blog section-padding" data-scroll-index="6">
-        <div class="container">
-            <!-- section-head -->
-          <div class="section-head text-center">
-            <h2 data-text="News"><span>Blog</span></h2>
-          </div>
-
-          <!-- first row blog -->
-          <div class="row items">
-            <div class="col-lg-5 info">
-              <h6>After Effect</h6>
-              <h4>
-                <a href="#0">Top 10 Advertisement Templates for After Effects.</a>
-              </h4>
-              <p>Lorem ipsum dolor, sit amet consectetur amet adipisicing elit. Deleniti, harum amet optio! Nam numquam assum enda minus ex ab autem accusamus ipsam ut asperiores maxime....</p>
-              <a class="show" href="#0"> <span>Show More</span> </a>
-            </div>
-
-            <div class="col-lg-7 img">
-                <img src="<?= base_url('assets/img/')?>/news/2.jpg" alt="">
-                <span class="date text-center"> 22 <br> JUN</span>
-            </div>
-          </div>
-
-           <!-- second row blog -->
-          <div class="row items sec">
-            <div class="col-lg-7 img">
-                <img src="<?= base_url('assets/img/')?>/news/3.jpg" alt="">
-                <span class="date text-center"> 15 <br> FEB</span>
-            </div>
-
-            <div class="col-lg-5 info">
-              <h6>Wordpress</h6>
-              <h4>
-                <a href="#0">How Ubiquity Became a Liability for Burberry.</a>
-              </h4>
-              <p>Lorem ipsum dolor, sit amet consectetur adipisicing amet elit. Deleniti, harum optio! amet Nam numquam assum enda minus ex ab autem accusamus ipsam ut asperiores maxime....</p>
-              <a class="show" href="#0"> <span>Show More</span> </a>
-            </div>
-          </div>
-        </div>
-      </section>
-    <!-- =====================================
-    ==== end plog -->
+      
       
 
 
@@ -527,13 +487,13 @@
       <section class="page-contact section-padding" data-scroll-index="7">
         <div class="container">
           <!-- section-head -->
-          <div class="section-head text-center">
+        <!--   <div class="section-head text-center">
             <h2 data-text="contact"><span>Contact Us</span></h2>
-          </div>
+          </div> -->
 
           <div class="row">
             <!-- contact info -->
-              <div class="col-lg-4">
+              <div class="col-lg-12">
                 <div class="item row">
                     <span class="icon col-2 col-sm-1"><i class="fa fa-map-marker-alt"></i></span>
                     <div class="content col-10 col-sm-11">
@@ -562,56 +522,7 @@
               </div>
 
               <!-- contact form -->
-              <div class="col-lg-8">
-                  <form class="form" id="contact-form" method="post" action="contact.php">
-
-                      <div class="messages"></div>
-
-                      <div class="controls">
-
-                          <div class="row">
-                              <div class="col-md-6">
-                                  <div class="form-group">
-                                      <i class="fa fa-user"></i>
-                                      <input id="form_name" type="text" name="name" placeholder="your Name..." required="required" data-error="Firstname is required.">
-                                      <div class="help-block with-errors"></div>
-                                  </div>
-                              </div>
-                              <div class="col-md-6">
-                                  <div class="form-group">
-                                      <i class="fa fa-mobile-alt"></i>
-                                      <input id="form_email" type="text" name="phone" placeholder="Cell phone..." required="required" data-error="Valid email is required.">
-                                      <div class="help-block with-errors"></div>
-                                  </div>
-                              </div>
-                              <div class="col-md-6">
-                                  <div class="form-group">
-                                      <i class="fa fa-envelope"></i>
-                                      <input id="form_subject" type="email" name="email" placeholder="Email Adress...">
-                                  </div>
-                              </div>
-                              <div class="col-md-6">
-                                  <div class="form-group">
-                                      <i class="fa fa-comment-dots"></i>
-                                      <input id="form_subject" type="text" name="subject" placeholder="Subject...">
-                                  </div>
-                              </div>
-                              <div class="col-md-12">
-                                  <div class="form-group">
-                                      <i class="fa fa-comment"></i>
-                                      <textarea id="form_message" name="message" placeholder="Your Message" rows="4" required="required" data-error="Your message is required."></textarea>
-                                      <div class="help-block with-errors"></div>
-                                  </div>
-                              </div>
-
-                              <div class="col-md-12">
-                                  <button type="submit" class="butn butn-bg"><span>Send Message</span></button>
-                              </div>
-
-                          </div>                             
-                      </div>
-                  </form>
-              </div>
+              
           </div>
         </div>
       </section>

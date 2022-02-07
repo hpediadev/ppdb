@@ -3,9 +3,7 @@
     	==== Start footer -->
         <footer class="section-padding">
           <div class="container">
-            <div class="row">
-
-              <!-- about agancy -->
+            <!-- <div class="row">
               <div class="col-lg-4 items">
                 <a href="#0" class="footer-logo">
                   <img src="<?= base_url('assets/img/')?>logo.png" alt="">
@@ -19,8 +17,6 @@
                   </ul>
                 </div>
               </div>
-
-              <!-- site map -->
               <div class="col-lg-2 items">
                 <h3>Navigation</h3>
                 <ul class="pages">
@@ -31,8 +27,6 @@
                   <li><span><i class="fas fa-angle-right"></i></span><a href="#0">Services</a></li>
                 </ul>
               </div>
-
-              <!-- agancy services -->
               <div class="col-lg-2 items">
                 <h3>Services</h3>
                 <ul class="pages">
@@ -43,16 +37,14 @@
                   <li><span><i class="fas fa-angle-right"></i></span><a href="#0">Fast Support</a></li>
                 </ul>
               </div>
-
-              <!-- last news -->
               <div class="col-lg-4 items">
                 <h3>Newsletter</h3>
                 <p>Subscribe our newsletter and get latest update</p>
                 <input name="email" type="text" placeholder="Email Adress">
               </div>
-            </div>
+            </div> -->
             <div class="copy text-center">
-              <p><a href="https://templateshub.net">Templates Hub</a></p>
+              <p> <strong>Copyright &copy; SMK Putra Bangsa | Created By <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">Media Digital</a></strong></p>
             </div>
           </div>
         </footer>
