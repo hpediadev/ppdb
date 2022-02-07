@@ -41,6 +41,9 @@ class V1 extends CI_Controller{
     $data['word'] = $this->session->userdata('mycaptcha');
     //$this->load->view('loginView',$data);
 
+    $this->db->order_by('IDTESTI','DESC');
+    $data['data'] = $this->Proses->getData('ttestimoni_md', $where);
+
     $this->load->view('header');
     $this->load->view('home', $data);
     // $this->load->view('isi');

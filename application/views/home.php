@@ -360,7 +360,7 @@
           </div>
 
           <!-- our team -->
-          <div class="row">
+        <!--   <div class="row">
             <div class="col-lg-3">
               <div class="item text-center">
                 <div class="img">
@@ -419,7 +419,7 @@
                   <a href="#0"><i class="fa fa-at"></i></a>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- end team -->
           </div>
         </div>
@@ -443,14 +443,8 @@
           <!-- clients -->
           <div class="owl-carousel owl-theme">
            <?php
-            // buat koneksi dengan MySQL, gunakan database: universitas
-            $link = mysqli_connect("localhost", "root", "", "websekolah");
-             
-            // jalankan query
-            $result = mysqli_query($link, "SELECT * FROM ttestimoni_md");
-             
-            // tampilkan query
-            while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC))
+            
+            foreach($data->result() as $r)
             {
                // echo $row['NAMATESTI']." ".$row['TESTIMONI'];
                // echo "<br />";
@@ -459,13 +453,13 @@
 
             <div class="items">
               <div class="item text-center">
-                <p>"<?= $row['TESTIMONI']?>"</p>
+                <p>"<?= $r->TESTIMONI?>"</p>
                 <div class="img">
                   <img src="<?= base_url('assets/img/')?>/team/1.jpg" alt="">
                 </div>
                 <div class="client-info">
-                  <h5><?= $row['NAMATESTI']?></h5>
-                  <h6><?= $row['JABATAN']?></h6>
+                  <h5><?= $r->NAMATESTI?></h5>
+                  <h6><?= $r->JABATAN?></h6>
                 </div>
               </div>
             </div>
