@@ -5,7 +5,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 <head>
 
-    <title>Aclema</title>
+    <title>PPDB | SMK Putra Bangsa</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
     <meta charset="utf-8">
