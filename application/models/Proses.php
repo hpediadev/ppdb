@@ -34,11 +34,12 @@ class Proses extends CI_Model{
         $mail = new PHPMailer();
 
         // SMTP configuration
+            // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
        $mail->isSMTP();
         $mail->Host     = 'mail.smkpbwaru.sch.id'; //sesuaikan sesuai nama domain hosting/server yang digunakan
         $mail->SMTPAuth = true;
-        $mail->Username = 'ppdb@smkpbwaru.sch.id'; // user email
-        $mail->Password = 'adminppdbOKE'; // password email
+        $mail->Username = 'info@smkpbwaru.sch.id'; // user email
+        $mail->Password = 'PutraBangsa'; // password email
         $mail->SMTPSecure = 'ssl';
         $mail->Port     = 465;
 

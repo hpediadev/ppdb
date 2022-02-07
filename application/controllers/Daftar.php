@@ -37,7 +37,8 @@ class Daftar extends CI_Controller
   function simpanreg()
   {
     if ($this->session->userdata('val') == 'data') {
-
+        
+        $kodeak = md5("Tes");
 
       $this->session->set_userdata('val', 'data2');
       $pdf = $this->input->post('pdf');
@@ -241,7 +242,7 @@ class Daftar extends CI_Controller
               <tr>
                 <td>Password</td>
                 <td>:</td>
-                <td>' . $pass . '</td>
+                <td>' . $pass .'</td>
               </tr>
             </table>
                                                                                                         </span>
@@ -316,7 +317,8 @@ class Daftar extends CI_Controller
         'TGLLAHIR' => $tgl,
         'HP' => $hp,
         'EMAIL' => $email,
-        'PASSWORD' => $pass
+        'PASSWORD' => $pass,
+        'LINK'=> $kodeak
       );
 
       $s = $this->Proses->inputData('siswabaru', $data);
