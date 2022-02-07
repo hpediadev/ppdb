@@ -35,15 +35,15 @@ class Proses extends CI_Model{
 
         // SMTP configuration
        $mail->isSMTP();
-        $mail->Host     = 'putrabalawa.com'; //sesuaikan sesuai nama domain hosting/server yang digunakan
+        $mail->Host     = 'mail.smkpbwaru.sch.id'; //sesuaikan sesuai nama domain hosting/server yang digunakan
         $mail->SMTPAuth = true;
-        $mail->Username = 'info@putrabalawa.com'; // user email
-        $mail->Password = 'PutraBalawa'; // password email
+        $mail->Username = 'ppdb@smkpbwaru.sch.id'; // user email
+        $mail->Password = 'adminppdbOKE'; // password email
         $mail->SMTPSecure = 'ssl';
         $mail->Port     = 465;
 
-        $mail->setFrom('no-reply@putrabalawa.com', 'SMK Putra Bangsa'); // user email
-        $mail->addReplyTo('no-reply@putrabalawa.com', ''); //user email
+        $mail->setFrom('no-reply@smkpbwaru.sch.id', 'SMK Putra Bangsa'); // user email
+        $mail->addReplyTo('no-reply@smkpbwaru.sch.id', ''); //user email
 
 
         // Add a recipient
