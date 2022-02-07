@@ -453,7 +453,7 @@
 
             <div class="items">
               <div class="item text-center">
-                <p>"<?= $r->TESTIMONI?>"</p>
+                <p>"<?= substr($r->TESTIMONI,0,200)?>"</p>
                 <div class="img">
                   <img src="<?= base_url('assets/img/')?>/team/1.jpg" alt="">
                 </div>
