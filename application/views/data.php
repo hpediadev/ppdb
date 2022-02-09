@@ -130,7 +130,7 @@ $(document).ready(function() {
                         <option <?= $l?> value="1">Laki-laki</option>
                         <option <?= $p ?> value="2">Perempuan</option>
                       </select>
-                       <input type="text"  class="form-control" value="<?= $jk; ?>" id="jk" name="jk" plc="jk"> 
+                       <!-- <input type="text"  class="form-control" value="<?= $jk; ?>" id="jk" name="jk" plc="jk">  -->
                     </div>
                   </div>
                   <div class="form-group">
