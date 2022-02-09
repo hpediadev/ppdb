@@ -22,72 +22,71 @@
 
 
                ?>
-              <li class="<?= $satu?>"><a href="#activity" data-toggle="tab">Data Pribadi</a></li>
-              <li class="<?= $dua?>" ><a href="#datapribadi" data-toggle="tab">Data Orang Tua/Wali</a></li>
-              <li class="<?= $tiga?>"><a href="#dataperiodik" data-toggle="tab">Data Periodik</a></li>
+              <li class=""active><a href="#activity" data-toggle="tab">Data Pribadi</a></li>
+              <li class="" ><a href="#datapribadi" data-toggle="tab">Data Orang Tua/Wali</a></li>
+              <li class=""><a href="#dataperiodik" data-toggle="tab">Data Periodik</a></li>
               <!-- <li><a href="#timeline" data-toggle="tab">Timeline</a></li> -->
-              <li class="<?= $empat?>"><a href="#settings" data-toggle="tab">Upload Persyaratan</a></li>
-              <li class="<?= $lima?>"><a href="#selesai" data-toggle="tab">Selesaikan Pendaftaran</a></li>
             </ul>
             <div class="tab-content">
-              <div class="<?= $satu?> tab-pane" id="activity">
-                 <section class="content">
+              <div class="active tab-pane" id="activity">
+                 
+                   <section class="content">
                     <div class="row">
                       <div class="col-xs-12">
-                        
+                       
 
-                        <!-- <div class="box"> -->
+                        <div class="box">
                           <!-- /.box-header -->
-                          <!-- <div class="box-body"> -->
-                            <table id="example2" class="table table-bordered table-striped">
+                          <div class="box-body">
+                            <table id="example1" class="table table-bordered table-striped">
                               <thead>
-                              <tr>
-                                <th>NIK</th>
-                                <th>Nama</th>
-                                <th>Asal Sekolah</th>
-                                <th>Jurusan</th>
-                                <th>KK</th>
-                                <th>SKL</th>
-                              </tr>
+                                <tr>
+                                  <th>NIK</th>
+                                  <th>Nama</th>
+                                  <th>Asal Sekolah</th>
+                                  <th>Jurusan</th>
+                                  <th>KK</th>
+                                  <th>SKL</th>
+                                </tr>
                               </thead>
                               <tbody>
 
-                                <?php 
-                                $l=''; $p='';
-                                    foreach($data->result() as $data){
-                                      if($data->JK==1){
-                                        $l='selected';
-                                        $jk='Laki-laki';
-                                      }
-                                      else{
-                                        $p='selected';
-                                        $jk='Perempuan';
-                                      }
-                                ?>
-                              <tr>
-                                <td><?= $data->NIK?></td>
-                                <td><?= $data->NAMALENGKAP?></td>
-                                <td><?= $data->NAMALENGKAP?></td>
-                                <td><?= $data->NAMALENGKAP?></td>
-                                <td><?= $data->NAMALENGKAP?></td>
-                                <td><?= $data->NAMALENGKAP?></td>
-                              </tr>
-                            <?php } ?>
+                                              <?php 
+                                              $l=''; $p='';
+                                                  foreach($data->result() as $data){
+                                                    if($data->JK==1){
+                                                      $l='selected';
+                                                      $jk='Laki-laki';
+                                                    }
+                                                    else{
+                                                      $p='selected';
+                                                      $jk='Perempuan';
+                                                    }
+                                              ?>
+                                            <tr>
+                                              <td><?= $data->NIK?></td>
+                                              <td><?= $data->NAMALENGKAP?></td>
+                                              <td><?= $data->NAMALENGKAP?></td>
+                                              <td><?= $data->NAMALENGKAP?></td>
+                                              <td><?= $data->NAMALENGKAP?></td>
+                                              <td><?= $data->NAMALENGKAP?></td>
+                                            </tr>
+                                          <?php } ?>
                               </tbody>
                               <tfoot>
-                              <tr>
-                                <th>NIK</th>
-                                <th>Nama</th>
-                                <th>Asal Sekolah</th>
-                                <th>Jurusan</th>
-                                <th>Berkas</th>
-                                <th>SKL</th>
-                              </tr>
+                                <tr>
+                                  <th>NIK</th>
+                                  <th>Nama</th>
+                                  <th>Asal Sekolah</th>
+                                  <th>Jurusan</th>
+                                  <th>KK</th>
+                                  <th>SKL</th>
+                                </tr>
                               </tfoot>
                             </table>
-                          <!-- </div> -->
+                          </div>
                           <!-- /.box-body -->
-                        <!-- </div> -->
+                        </div>
                         <!-- /.box -->
                       </div>
                       <!-- /.col -->
@@ -95,11 +94,11 @@
                     <!-- /.row -->
                   </section>
               </div>
-              <div class="<?= $dua?> tab-pane" id="datapribadi">
+              <div class=" tab-pane" id="datapribadi">
                 <!-- /.post -->
               </div>
 
-              <div class="<?= $tiga?> tab-pane" id="dataperiodik">
+              <div class=" tab-pane" id="dataperiodik">
               </div>
               <!-- /.tab-pane -->
             </div>
