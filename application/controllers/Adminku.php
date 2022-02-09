@@ -32,20 +32,22 @@ class Adminku extends CI_Controller{
      }
     }
     }
-  function simpan(){
+  function login(){
       $email = $this->input->post('email');
       $pass = $this->input->post('pass');
       $where = array(
         'EMAIL'=> $email
       );
-      $sql = $this->Proses->getData('siswabaru', $where);
+      $sql = $this->Proses->getData('operator', $where);
       if($sql->num_rows() >0){
         // $pass = password_hash('9000', PASSWORD_DEFAULT);
         $pwdb = 0;
         foreach($sql->result() as $r){
           $pwdb = $r->PASSWORD;
            if(password_verify($pass, $pwdb)){
-              echo json_encode(array('success' => 1, 'message' => 'Selamat...! Login Berhas'));
+              $s = $sql->result();
+              $this->session->set_userdata(['user_logged' => $s]);
+              echo json_encode(array('success' => 1, 'message' => 'Selamat...! Login Berhasil'));
            }
            else{
               echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));

@@ -87,7 +87,7 @@ $(document).ready(function() {
             $.ajax({
 
             type: "POST",
-            url:"<?= base_url('login/simpan')?>",
+            url:"<?= base_url('adminku/login')?>",
             data: $(this).serialize(),
 
 
@@ -122,7 +122,7 @@ $(document).ready(function() {
                         confirmButtonText: 'Ok'
                     }).then((result) => {
                         if (result.value) {
-                            location.href = "<?= base_url('dashboard')?>";
+                            location.href = "<?= base_url('adminppdb')?>";
                         }
                        })
                 }
