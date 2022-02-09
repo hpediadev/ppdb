@@ -123,14 +123,10 @@ $(document).ready(function() {
 
                     <div class="col-sm-9">
                       <select class="form-control" id="jk" name="jk">
-                        <?php 
-                        if($j)
-                         ?>
                         <option value="">Pilih Jenis Kelamin</option>
                         <option <?= $l?> value="1">Laki-laki</option>
                         <option <?= $p ?> value="2">Perempuan</option>
                       </select>
-                       <!-- <input type="text"  class="form-control" value="<?= $jk; ?>" id="jk" name="jk" plc="jk">  -->
                     </div>
                   </div>
                   <div class="form-group">
