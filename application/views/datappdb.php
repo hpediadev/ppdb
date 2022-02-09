@@ -42,11 +42,11 @@
                             <table id="example2" class="table table-bordered table-striped">
                               <thead>
                               <tr>
+                                <th>NIK</th>
                                 <th>Nama</th>
                                 <th>Asal Sekolah</th>
                                 <th>Jurusan</th>
                                 <th>KK</th>
-                                <th>AKTA</th>
                                 <th>SKL</th>
                               </tr>
                               </thead>
@@ -65,7 +65,7 @@
                                       }
                                 ?>
                               <tr>
-                                <td><?= $data->NAMALENGKAP?></td>
+                                <td><?= $data->NIK?></td>
                                 <td><?= $data->NAMALENGKAP?></td>
                                 <td><?= $data->NAMALENGKAP?></td>
                                 <td><?= $data->NAMALENGKAP?></td>
@@ -76,11 +76,11 @@
                               </tbody>
                               <tfoot>
                               <tr>
+                                <th>NIK</th>
                                 <th>Nama</th>
                                 <th>Asal Sekolah</th>
                                 <th>Jurusan</th>
-                                <th>KK</th>
-                                <th>AKTA</th>
+                                <th>Berkas</th>
                                 <th>SKL</th>
                               </tr>
                               </tfoot>
