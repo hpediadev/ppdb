@@ -1,11 +1,16 @@
 <br><br><br>
 <section class="content">
 <?php 
+$l=''; $p='';
     foreach($data->result() as $data){
-      if($data->JK==1)
+      if($data->JK==1){
+        $l='selected';
         $jk='Laki-laki';
-      else
+      }
+      else{
+        $p='selected';
         $jk='Perempuan';
+      }
 ?>
 <style type="text/css">
   input[type="text"] {
@@ -117,6 +122,14 @@ $(document).ready(function() {
                     <label for="inputName" class="col-sm-3 control-label">Jenis Kelamin</label>
 
                     <div class="col-sm-9">
+                      <select class="form-control" id="jk" name="jk">
+                        <?php 
+                        if($j)
+                         ?>
+                        <option value="">Pilih Jenis Kelamin</option>
+                        <option <?= $l?> value="1">Laki-laki</option>
+                        <option <?= $p ?> value="2">Perempuan</option>
+                      </select>
                        <input type="text"  class="form-control" value="<?= $jk; ?>" id="jk" name="jk" plc="jk"> 
                     </div>
                   </div>
