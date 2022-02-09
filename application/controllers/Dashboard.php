@@ -14,19 +14,25 @@ class Dashboard extends CI_Controller{
      
     // load form_validation library
     $this->load->library('form_validation');
+    if(empty($this->session->userdata('nik')) OR empty($this->session->userdata('tgl')))
+      redirect(base_url());
   }
 
   function index(){
-    $datas = $this->session->userdata('user_logged');
+    $nik = $this->session->userdata('nik');
+    $tgl = $this->session->userdata('tgl');
     $where = array(
-      'EMAIL'=> $datas->EMAIL,
-      'NISN'=> $datas->NISN
+      'NIK'=> $nik,
+      'TGLLAHIR'=> $tgl
     );
+    // echo  $this->session->userdata('nik');
+    $where2=array();
     $data['data'] = $this->Proses->getData('siswabaru', $where);
+    $data['jurusan'] = $this->Proses->getData('tprodi_md', $where2);
 
-    $this->load->view('header-das');
+    $this->load->view('header-das', $data);
     $this->load->view('data', $data);
-    $this->load->view('footer-das');
+    $this->load->view('footer-das', $data);
   }
   function cekCaptcha(){
     $captcha = $this->input->post('captcha_code'); #mengambil value inputan pengguna
@@ -41,7 +47,8 @@ class Dashboard extends CI_Controller{
       $email = $this->input->post('email');
       $pass = $this->input->post('pass');
       $where = array(
-        'EMAIL'=> $email
+        'NIK'=> $nik,
+        'TGLLAHIR'=> $tgl
       );
       $sql = $this->Proses->getData('siswabaru', $where);
       if($sql->num_rows() >0){
@@ -67,7 +74,11 @@ class Dashboard extends CI_Controller{
   }
   function simpandatapribadi(){
     $post = $this->input->post();
-    $nik = htmlspecialchars($post['nik']);
+    $nama = $post['nama'];
+    $nisn = $post['nisn'];
+    $jk = $post['jk'];
+    $tmp = $post['tmp'];
+    $email = $post['email'];
     $kk = $post['kk'];
     $akta = $post['akta'];
     $jalan = $post['jalan'];
@@ -80,7 +91,11 @@ class Dashboard extends CI_Controller{
     $prov = $post['prov'];
 
     $data =array(
-      'NIK'=> $nik,
+      'NAMALENGKAP'=> $nama,
+      'NISN'=> $nisn,
+      'JK'=> $jk,
+      'TMPLAHIR'=> $tmp,
+      'EMAIL'=> $email,
       'NOKK'=> $kk,
       'AKTA'=> $akta,
       'ALAMAT'=> $jalan,
@@ -91,16 +106,17 @@ class Dashboard extends CI_Controller{
       'KEC'=> $kec,
       'KAB'=> $kab,
       'PROV'=> $prov,
-      'NIK'=> $nik
+              'MENU'=> 1
     );
-
+    $nik = $this->session->userdata('nik');
+    $tgl = $this->session->userdata('tgl');
     $where = array(
-      'EMAIL'=> $post["email"]
+      'NIK'=> $nik,
+      'TGLLAHIR'=> $tgl
     );
-
     $sql = $this->Proses->updateData('siswabaru', $data, $where);
     if($sql>0)
-    echo json_encode(array('success' => 1, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+    echo json_encode(array('success' => 1, 'message' => 'Data Sudah Tersimpan'));
     else
     echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
   }
@@ -128,11 +144,14 @@ class Dashboard extends CI_Controller{
       'PENDWALI'=> $post['pendwali'],
       'PEKERWALI'=> $post['pekerwali'],
       'HASILWALI'=> $post['hasilwali'],
-      'HPWALI'=> $post['hpwali']
+      'HPWALI'=> $post['hpwali'],
+              'MENU'=> 2
     );
-
+    $nik = $this->session->userdata('nik');
+    $tgl = $this->session->userdata('tgl');
     $where = array(
-      'EMAIL'=> $post["email"]
+      'NIK'=> $nik,
+      'TGLLAHIR'=> $tgl
     );
 
     $sql = $this->Proses->updateData('siswabaru', $data, $where);
@@ -154,11 +173,14 @@ class Dashboard extends CI_Controller{
       'ANAKKE'=> $post['anakke'],
       'NOKKS'=> $post['nokks'],
       'PKH'=> $post['pkh'],
-      'NOPKH'=> $post['nopkh']
+      'NOPKH'=> $post['nopkh'],
+              'MENU'=> 3
     );
-
+    $nik = $this->session->userdata('nik');
+    $tgl = $this->session->userdata('tgl');
     $where = array(
-      'EMAIL'=> $post["email"]
+      'NIK'=> $nik,
+      'TGLLAHIR'=> $tgl
     );
 
     $sql = $this->Proses->updateData('siswabaru', $data, $where);
@@ -169,14 +191,15 @@ class Dashboard extends CI_Controller{
   }
 
   function simpanselesai(){
-    $post = htmlspecialchars($this->input->post());
 
     $data =array(
       'STS'=> 2
     );
-
+    $nik = $this->session->userdata('nik');
+    $tgl = $this->session->userdata('tgl');
     $where = array(
-      'EMAIL'=> $post["email"]
+      'NIK'=> $nik,
+      'TGLLAHIR'=> $tgl
     );
 
     $sql = $this->Proses->updateData('siswabaru', $data, $where);
@@ -199,41 +222,49 @@ class Dashboard extends CI_Controller{
           
           if($id==='fp'){
             $dataku = array(
-              'FOTO'=> $image
+              'FOTO'=> $image,
+              'MENU'=> 4
             );
           }
           else if($id==='kk'){
             $dataku = array(
-              'KK'=> $image
+              'KK'=> $image,
+              'MENU'=> 4
             );
           }
           else if($id==='fa'){
             $dataku = array(
-              'FOTOAKTA'=> $image
+              'FOTOAKTA'=> $image,
+              'MENU'=> 4
             );
           }
           else if($id==='sk'){
             $dataku = array(
-              'SKL'=> $image
+              'SKL'=> $image,
+              'MENU'=> 4
             );
           }
           else if($id==='ij'){
             $dataku = array(
-              'IJAZAH'=> $image
+              'IJAZAH'=> $image,
+              'MENU'=> 4
             );
           }
           else if($id==='sh'){
             $dataku = array(
-              'SKHU'=> $image
+              'SKHU'=> $image,
+              'MENU'=> 4
             );
           }
-          
-          $em = $this->session->userdata('user_logged');
                    // var_dump($data);
                   // echo $data->NAMALENGKAP;
-          $where = array(
-            'EMAIL'=> $em->EMAIL
-          );
+          
+    $nik = $this->session->userdata('nik');
+    $tgl = $this->session->userdata('tgl');
+    $where = array(
+      'NIK'=> $nik,
+      'TGLLAHIR'=> $tgl
+    );
 
           $result= $this->Proses->updateData('siswabaru',$dataku, $where);
           if($result>0){
@@ -248,12 +279,11 @@ class Dashboard extends CI_Controller{
   }
 
 
-  function kontak(){
-    $this->load->view('header');
-    $this->load->view('pages');
-    $this->load->view('daftar');
-    $this->load->view('footer');
-  }
+   public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect(site_url(''));
+    }
 
   
 }

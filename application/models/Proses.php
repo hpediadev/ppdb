@@ -59,11 +59,14 @@ class Proses extends CI_Model{
         // Email body content
         $mailContent = $pesan; // isi email
         $mail->Body = $mailContent;
+        $result = $mail->send();
         $p=0;
-        if(!$mail->send()){
+        if(!$result){
+
             $p=1;
-            $this->session->set_flashdata('Message','Gagal');
+            $this->session->set_flashdata('Message','Gagal'.$mail->ErrorInfo);
         }else{
+            
             $p=2;
             $this->session->set_flashdata('Message','Terkirim');
         }

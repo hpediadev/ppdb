@@ -32,16 +32,41 @@ $(document).ready(function() {
         <div class="col-md-9">
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class=""><a href="#activity" data-toggle="tab">Data Pribadi</a></li>
-              <li><a href="#datapribadi" data-toggle="tab">Data Orang Tua/Wali</a></li>
-              <li><a href="#dataperiodik" data-toggle="tab">Data Periodik</a></li>
+              <?php 
+              $satu='';
+              $dua='';
+              $tiga='';
+              $empat='';
+              $lima='';
+              $satu='';
+              if($data->MENU==1 OR empty($data->MENU)){
+                $satu='active';
+              }
+              else if($data->MENU==2){
+                $dua='active';
+              }
+              else if($data->MENU==3){
+                $tiga='active';
+              }
+              else if($data->MENU==4){
+                $empat='active';
+              }
+              else if($data->MENU==5){
+                $lima='active';
+              }
+
+
+               ?>
+              <li class="<?= $satu?>"><a href="#activity" data-toggle="tab">Data Pribadi</a></li>
+              <li class="<?= $dua?>" ><a href="#datapribadi" data-toggle="tab">Data Orang Tua/Wali</a></li>
+              <li class="<?= $tiga?>"><a href="#dataperiodik" data-toggle="tab">Data Periodik</a></li>
               <!-- <li><a href="#timeline" data-toggle="tab">Timeline</a></li> -->
-              <li class="actsive"><a href="#settings" data-toggle="tab">Upload Persyaratan</a></li>
-              <li class="actsive"><a href="#selesai" data-toggle="tab">Selesaikan Pendaftaran</a></li>
+              <li class="<?= $empat?>"><a href="#settings" data-toggle="tab">Upload Persyaratan</a></li>
+              <li class="<?= $lima?>"><a href="#selesai" data-toggle="tab">Selesaikan Pendaftaran</a></li>
             </ul>
             <div class="tab-content">
-              <div class="active tab-pane" id="activity">
-                <form class="form-horizontal" id="simpan" mZethod="post" acZtion="<?= base_url('dashboard/simpandatapribadi')?>">
+              <div class="<?= $satu?> tab-pane" id="activity">
+                <form class="form-horizontal" id="simpan" methosd="post" actsion="<?= base_url('dashboard/simpandatapribadi')?>">
                   
                   <div class="form-group">
                     <div class="col-sm-12">
@@ -49,38 +74,10 @@ $(document).ready(function() {
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputName" class="col-sm-3 control-label">No Pendaftaran</label>
+                    <label for="inputExperience" class="col-sm-3 control-label">NIK</label>
 
                     <div class="col-sm-9">
-                      <input type="text" readonly class="form-control" value="<?= $data->NAMALENGKAP; ?>" id="no" name="no" plc="Name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-3 control-label">Nama Lengkap</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" readonly class="form-control" value="<?= $data->NAMALENGKAP; ?>" id="nama" name="nama" plc="Name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-3 control-label">NISN</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" readonly class="form-control" value="<?= $data->NISN; ?>" id="nisn" name="nisn" plc="Name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-3 control-label">Jenis Kelamin</label>
-
-                    <div class="col-sm-9">
-                       <input type="text" readonly class="form-control" value="<?= $jk; ?>" id="tmp" name="jk" plc="jk"> 
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="inputSkills" class="col-sm-3 control-label">Tempat Lahir</label>
-
-                    <div class="col-sm-9">
-                      <input type="text" readonly class="form-control" value="<?= $data->TMPLAHIR; ?>" id="tmp" name="tmp" plc="Name"> 
+                      <input type="text" readonly  class="form-control" value="<?= $data->NIK; ?>" id="nik" name="nik" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
@@ -91,17 +88,57 @@ $(document).ready(function() {
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputExperience" class="col-sm-3 control-label">Email</label>
+                    <label for="inputName" class="col-sm-3 control-label">Pilihan Jurusan</label>
 
                     <div class="col-sm-9">
-                      <input type="text" readonly class="form-control" value="<?= $data->EMAIL; ?>" id="email" name="email" plc="Name"> 
+                      <select class="form-control" id="jurusan" name="jurusan">
+                        <option value="">Pilih Jurusan</option>
+                        <?php foreach($jurusan->result() as $r){ ?>
+                        <option value="<?= $r->IDPRODI?>"><?= $r->NAMAPRODI?></option>
+                      <?php } ?>
+                      </select>
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="inputExperience" class="col-sm-3 control-label">NIK</label>
+                    <label for="inputName" class="col-sm-3 control-label">Nama Lengkap</label>
 
                     <div class="col-sm-9">
-                      <input type="text" onkeypress="return restrictchars(event, '1234567890')"  class="form-control" value="<?= $data->NIK; ?>" id="nik" name="nik" plc="Name"> 
+                      <input type="text"  class="form-control" value="<?= $data->NAMALENGKAP; ?>" id="nama" name="nama" plc="Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputEmail" class="col-sm-3 control-label">NISN</label>
+
+                    <div class="col-sm-9">
+                      <input type="text"  class="form-control" value="<?= $data->NISN; ?>" id="nisn" name="nisn" plc="Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName" class="col-sm-3 control-label">Jenis Kelamin</label>
+
+                    <div class="col-sm-9">
+                       <input type="text"  class="form-control" value="<?= $jk; ?>" id="jk" name="jk" plc="jk"> 
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputSkills" class="col-sm-3 control-label">Tempat Lahir</label>
+
+                    <div class="col-sm-9">
+                      <input type="text"  class="form-control" value="<?= $data->TMPLAHIR; ?>" id="tmp" name="tmp" plc="Name"> 
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputExperience" class="col-sm-3 control-label">Email</label>
+
+                    <div class="col-sm-9">
+                      <input type="text"  class="form-control" value="<?= $data->EMAIL; ?>" id="email" name="email" plc="Name"> 
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputName" class="col-sm-3 control-label">Asal Sekolah</label>
+
+                    <div class="col-sm-9">
+                      <input type="text"  class="form-control" value="<?= $data->NAMALENGKAP; ?>" id="asekolah" name="asekolah" plc="Name">
                     </div>
                   </div>
                   <div class="form-group">
@@ -245,7 +282,7 @@ $(document).ready(function() {
                 </form>
                 <!-- /.post -->
               </div>
-              <div class="tab-pane" id="datapribadi">
+              <div class="<?= $dua?> tab-pane" id="datapribadi">
                 <form class="form-horizontal" id="simpanwali" msethod="post" actsion="<?= base_url('dashboard/simpandatawali')?>">
                   
                   <div class="form-group">
@@ -258,7 +295,7 @@ $(document).ready(function() {
 
                     <div class="col-sm-9">
                       <input type="text"  class="form-control" value="<?= $data->AYAH; ?>" id="ayah" name="ayah" plc="Name"> 
-                      <input type="hidden"  class="form-control" value="<?= $data->EMAIL; ?>" id="email" name="email" plc="Name"> 
+                      <input type="hidden"  class="form-control" value="<?= $data->NIK; ?>" id="email" name="email" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
@@ -420,7 +457,7 @@ $(document).ready(function() {
                 <!-- /.post -->
               </div>
 
-              <div class="tab-pane" id="dataperiodik">
+              <div class="<?= $tiga?> tab-pane" id="dataperiodik">
                 <form class="form-horizontal" id="simpanperiodik" msethod="post" actsion="<?= base_url('dashboard/simpandataperiodik')?>">
                   
                   <div class="form-group">
@@ -433,7 +470,7 @@ $(document).ready(function() {
 
                     <div class="col-sm-9">
                       <input type="text"  class="form-control" value="<?= $data->TINGGI; ?>" id="tinggi" name="tinggi" plc="Name"> 
-                      <input type="hidden"  class="form-control" value="<?= $data->EMAIL; ?>" id="email" name="email" plc="Name"> 
+                      <input type="hidden"  class="form-control" value="<?= $data->NIK; ?>" id="email" name="email" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
@@ -509,8 +546,8 @@ $(document).ready(function() {
               </div>
 
 
-              <div class="tab-pane" id="selesai">
-                <form class="form-horizontal" id="simpanselesai" msethod="post" actsion="<?= base_url('dashboard/simpandatawali')?>">
+              <div class="<?= $lima?> tab-pane" id="selesai">
+                <form class="form-horizontal" id="simpanselesai" metshod="post" actiosn="<?= base_url('dashboard/simpanselesai')?>">
                   
                   <div class="form-group">
                     <div class="col-sm-12">
@@ -522,7 +559,7 @@ $(document).ready(function() {
                       <div class="checkbox">
                         <label>
                           <input type="checkbox" name="cek" id="cek"> 
-                      <input type="hidden"  class="form-control" value="<?= $data->EMAIL; ?>" id="email" name="email" plc="Name"> 
+                      <input type="hidden"  class="form-control" value="<?= $data->NIK; ?>" id="email" name="email" plc="Name"> 
                           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -639,7 +676,7 @@ $(document).ready(function() {
 
               <!-- /.tab-pane -->
 
-              <div class="tab-pane" id="settings">
+              <div class="<?= $empat?> tab-pane" id="settings">
                 <form class="form-horizontal" enctype="multipart/form-data"  id="fotopribadi">
                   <div class="form-group">
                     <div class="col-sm-12">

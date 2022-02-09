@@ -14,6 +14,7 @@
 
     <!-- <bootstrab css> -->
     <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap.min.css">
+      <link rel="icon" type="image/png" href="<?= base_url()?>logo.png" sizes="32x32">
 
     <!-- Icon -->
     <link rel="icon" type="image/png" href="img/fav.png">

@@ -89,27 +89,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" data-scroll-nav="1">Alur</a>
                 </li>
-               <!--  <li class="nav-item">
-                    <a class="nav-link" href="#" data-scroll-nav="2">Daftar</a>
-                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#" data-scroll-nav="3">Jurusan</a>
+                    <a class="nav-link" href="#" data-scroll-nav="2">Jurusan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-scroll-nav="3">Kata Alumni</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-scroll-nav="4">Bantuan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url('daftar')?>" dalta-scrsoll-nav="7">Daftar</a>
                 </li>
                 <!-- <li class="nav-item">
-                  <a class="nav-link" href="#" data-scroll-nav="4">Download</a>
-              </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-scroll-nav="5">Kata Alumni</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-scroll-nav="7">Bantuan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('daftar')?>" data-scrsoll-nav="7">Daftar</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('login')?>" data-scrsoll-nav="7">Login</a>
-                </li>
+                    <a class="nav-link" href="<?= base_url('login')?>" datak-scrsoll-nav="7">Login</a>
+                </li> -->
                 </ul>
             </div>
         </div>
@@ -170,7 +164,7 @@
 
     <!-- =====================================
       ==== Start services -->
-      <div gray-bg class="services section-padding" data-scroll-index="9">
+      <div gray-bg class="services section-padding" data-scroll-index="2">
         <div class="container">
           <!-- section-head -->
         
@@ -250,7 +244,7 @@
 
     <!-- =====================================
     ==== Start portfolio -->
-      <section class="portfolio section-padding" data-scroll-index="3">
+      <section class="portfolio section-padding" data-scroll-index="2">
         <div class="container-fluid">
           <!-- section-head -->
           <!--   <div class="section-head text-center">
@@ -436,7 +430,7 @@
 
     <!-- =====================================
     ==== Start clients -->
-      <section class="clients section-padding" data-scroll-index="5">
+      <section class="clients section-padding" data-scroll-index="3">
         <div class="container">
             <!-- section-head -->
           <!-- <div class="sections-head text-center">
@@ -484,7 +478,7 @@
 
     <!-- =====================================
     ==== Start contact -->
-      <section class="page-contact section-padding" data-scroll-index="7">
+      <section class="page-contact section-padding" data-scroll-index="4">
         <div class="container">
           <!-- section-head -->
         <!--   <div class="section-head text-center">

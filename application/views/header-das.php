@@ -6,6 +6,8 @@
   <title>PPDB | SMK Putra Bangsa</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+      <link rel="icon" type="image/png" href="<?= base_url()?>logo.png" sizes="32x32">
+
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="<?= base_url('assets4/')?>bootstrap/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -45,7 +47,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Pendaftaran <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="<?= base_url('dashboard')?>">Pendaftaran <span class="sr-only">(current)</span></a></li>
             <li><a href="#">Cetak Formulir Pendaftaran</a></li>
            <!--  <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
@@ -81,9 +83,9 @@
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 <span class="hidden-xs">
                   <?php 
-                  $data = $this->session->userdata('user_logged');
-                   // var_dump($data);
-                  echo $data->NAMALENGKAP;
+                      foreach($data->result() as $data){
+                        echo $data->NAMALENGKAP;
+                      }
                    ?>
                 </span>
               </a>
@@ -118,7 +120,7 @@
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="<?= base_url('login/logout')?>" class="btn btn-default btn-flat">Sign out</a>
+                    <a href="<?= base_url('dashboard/logout')?>" class="btn btn-default btn-flat">Sign out</a>
                   </div>
                 </li>
               </ul>
