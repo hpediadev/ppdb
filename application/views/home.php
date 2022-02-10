@@ -32,18 +32,20 @@
       <header class="valign" data-scroll-index="0">
           <div class="overlay"></div>
           <!-- header content -->
-            <div class="container">
+            <div class="container" >
               <div class="row">
                 <div class="col-lg-6">
                   <!-- header info -->
                   <div class="owl-carousel owl-theme">
                       <div class="header-info items">
-                          <h6>Selamat Datang Di SMK Putra Bangsa</h6>
-                          <h3>Digital School & Industry Class</h3>
-                          <p>Satu-satunya sekolah yang berbasi digital dan berkomitmen dengan program kelas industri, SMK Putra Bangsa Siap Mencetak Anda Berjiwa Entrepreuner, Intelektual dan Berakhlakul Karimah</p>
-                          <h6>Penerimaan Peserta Didik Baru Akan Dimulai Dalam</h6>
-                          <div id="flipdown" class="flipdown"></div>
-                          <!-- <a class="butn" href="#"> <span>Get Startes</span> </a> -->
+                        <!-- <img src="<?= base_url('assets/img/baner.JPG')?>"> -->
+                          <h3>Welcome To</h3>
+                          <h3>Digital School & Industrial Class</h3>
+                          <p>Satu-satunya sekolah yang berbasis digital dan dipadukan dengan kelas industri, SMK Putra Bangsa Siap Mencetak Anda Berjiwa Entrepreneur, Intelektual dan Berakhlakul Karimah</p>
+
+                         <!--  <h6>Penerimaan Peserta Didik Baru Akan Dimulai Dalam</h6>
+                          <div id="flipdown" class="flipdown"></div> -->
+                          <a class="butn" href="<?= base_url('daftar')?>"> <span>Ayo Daftar Sekarang</span> </a>
                       </div>
 
                      <!--  <div class="header-info items">
