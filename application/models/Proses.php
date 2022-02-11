@@ -84,6 +84,14 @@ class Proses extends CI_Model{
         $this->db->update($table,$data);
         return $this->db->affected_rows();
     } 
+
+     public function getFields() {
+    return $this->db->list_fields('siswabaru');
+  }
+
+  public function getCol() {
+    return $this->db->get('siswabaru')->num_fields();
+  }
 }
 
 	

@@ -34,41 +34,6 @@ class Dashboard extends CI_Controller{
     $this->load->view('data', $data);
     $this->load->view('footer-das', $data);
   }
-  function cekCaptcha(){
-    $captcha = $this->input->post('captcha_code'); #mengambil value inputan pengguna
-    $word = $this->session->userdata('mycaptcha'); #mengambil value captcha
-    if (isset($captcha)) { #cek variabel $captcha kosong/tidak
-     if (strtoupper($captcha)==strtoupper($word)) { #proses pencocokan captcha
-          #terserah kalian mau diisi apa di sini
-     }
-    }
-    }
-  function simpan(){
-      $email = $this->input->post('email');
-      $pass = $this->input->post('pass');
-      $where = array(
-        'NIK'=> $nik,
-        'TGLLAHIR'=> $tgl
-      );
-      $sql = $this->Proses->getData('siswabaru', $where);
-      if($sql->num_rows() >0){
-        // $pass = password_hash('9000', PASSWORD_DEFAULT);
-        $pwdb = 0;
-        foreach($sql->result() as $r){
-          $pwdb = $r->PASSWORD;
-           if(password_verify($pass, $pwdb)){
-              echo json_encode(array('success' => 1, 'message' => 'Selamat...! Login Berhasil'));
-           }
-           else{
-              echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
-           }
-        }
-       
-      }
-      else{
-       echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
-      }
-  }
   function profil(){
     $this->load->view('profil');
   }

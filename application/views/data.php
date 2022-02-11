@@ -1,6 +1,8 @@
 <br><br><br>
 <section class="content">
 <?php 
+
+echo $this->session->userdata('nik');
 $l=''; $p='';
     foreach($data->result() as $data){
       if($data->JK==1){

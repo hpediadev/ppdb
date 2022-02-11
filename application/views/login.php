@@ -124,7 +124,7 @@ $(document).ready(function() {
                         if (result.value) {
                             location.href = "<?= base_url('adminppdb')?>";
                         }
-                       })
+                       });
                 }
                 else if (jsonData.success == "0")
                 {

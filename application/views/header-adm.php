@@ -85,8 +85,8 @@
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 <span class="hidden-xs">
                   <?php 
-                      foreach($data->result() as $data){
-                        echo $data->NAMALENGKAP;
+                      foreach($dataku->result() as $r){
+                        echo $r->NAMALENGKAP;
                       }
                    ?>
                 </span>
@@ -97,8 +97,8 @@
                   <img src="<?= base_url('assets4/')?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                   <p>
-                    <?= $data->NAMALENGKAP; ?>
-                    <small><?= $data->NISN; ?></small>
+                    <?= $r->NAMALENGKAP; ?>
+                    <small><?= $r->NISN; ?></small>
                   </p>
                 </li>
                 <!-- Menu Body -->
@@ -122,7 +122,7 @@
                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                   </div>
                   <div class="pull-right">
-                    <a href="<?= base_url('dashboard/logout')?>" class="btn btn-default btn-flat">Sign out</a>
+                    <a href="<?= base_url('adminppdb/logout')?>" class="btn btn-default btn-flat">Sign out</a>
                   </div>
                 </li>
               </ul>

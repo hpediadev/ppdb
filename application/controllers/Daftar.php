@@ -69,7 +69,7 @@ class Daftar extends CI_Controller
       if($sql->num_rows()>0){
         $this->session->set_userdata('nik' , $nik);
         $this->session->set_userdata('tgl' , $tgl);
-        echo json_encode(array('success' => 1, 'message' => 'Selamat... Silahkan Lengkapi Data Dan Upload Berkas dalam Benruk Foto/ File PDF'));
+        echo json_encode(array('success' => 1, 'message' => 'Selamat... Silahkan Lanjutkan Untuk Melengkapi Data Dan Upload Berkas dalam Benruk Foto/ File PDF'));
       }
       else{
 

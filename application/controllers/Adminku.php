@@ -84,5 +84,10 @@ class Adminku extends CI_Controller{
     $this->load->view('footer');
   }
 
+   public function logout()
+    {
+        $this->session->sess_destroy();
+        redirect(site_url(''));
+    }
   
 }
