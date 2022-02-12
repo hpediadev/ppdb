@@ -57,6 +57,7 @@ class Dashboard extends CI_Controller{
 
     $data =array(
       'NAMALENGKAP'=> $nama,
+      'JURUSAN'=> $post['jurusan'],
       'NISN'=> $nisn,
       'JK'=> $jk,
       'TMPLAHIR'=> $tmp,
@@ -250,5 +251,73 @@ class Dashboard extends CI_Controller{
         redirect(site_url(''));
     }
 
+    public function getkota()
+    {
+     try {
+        if(!empty($_GET['id'])){
+        $id = $_GET['id'];
+        $api_categories_list ='https://www.emsifa.com/api-wilayah-indonesia/api/regencies/'.$id.'.json';
+        $json_list = file_get_contents($api_categories_list);
+        $profile = json_decode($json_list, TRUE);
+        ?>
+        <select name="kota" id="kota" class="form-control" onchange="getcamat(this.value)">
+                          <option value="" selected>-- Silahkan Pilih --</option>
+        <?php
+        foreach($profile as $r){
+        ?>
+          <option value="<?= $r['id'];?>"><?= $r['name']?></option>
+        <?php
+        }
+        ?>
+      </select>
+        <?php
+      }
+     } catch (Exception $e) {
+       
+     }
+    }
+    public function getcamat()
+    {
+      if(!empty($_GET['id'])){
+      $id = $_GET['id'];
+      $api_categories_list ='http://www.emsifa.com/api-wilayah-indonesia/api/districts/'.$id.'.json';
+      $json_list = file_get_contents($api_categories_list);
+      $profile = json_decode($json_list, TRUE);
+      ?>
+      <select name="camat" id="camat" class="form-control" onchange="getdesa(this.value)">
+                        <option value="" selected>-- Silahkan Pilih --</option>
+      <?php
+      foreach($profile as $r){
+      ?>
+        <option value="<?= $r['id'];?>"><?= $r['name']?></option>
+      <?php
+      }
+      ?>
+    </select>
+      <?php
+    }
+    }
+    public function getdesa()
+    {
+      if(!empty($_GET['id'])){
+      $id = $_GET['id'];
+      // echo $id;
+      $api_categories_list ='http://www.emsifa.com/api-wilayah-indonesia/api/villages/'.$id.'.json';
+      $json_list = file_get_contents($api_categories_list);
+      $profile = json_decode($json_list, TRUE);
+      ?>
+      <select name="desa" id="desa" class="form-control">
+                        <option value="" selected>-- Silahkan Pilih --</option>
+      <?php
+      foreach($profile as $r){
+      ?>
+        <option value="<?= $r['id'];?>"><?= $r['name']?></option>
+      <?php
+      }
+      ?>
+    </select>
+      <?php
+    }
+    }
   
 }

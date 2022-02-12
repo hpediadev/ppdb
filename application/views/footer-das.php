@@ -14,6 +14,8 @@
 </div>
 <!-- ./wrapper -->
 
+
+<script src="<?= base_url('assets4/')?>plugins/select2/select2.full.min.js"></script>
 <!-- jQuery 2.2.3 -->
 <script src="<?= base_url('assets4/')?>plugins/jQuery/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->
@@ -26,5 +28,12 @@
 <script src="<?= base_url('assets4/')?>dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('assets4/')?>dist/js/demo.js"></script>
+
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2();
+    }
+  </script>
 </body>
 </html>

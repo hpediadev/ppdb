@@ -20,6 +20,10 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?= base_url('assets4/')?>dist/css/skins/_all-skins.min.css">
 
+  
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?= base_url('assets4/')?>plugins/select2/select2.min.css">
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -79,21 +83,33 @@
               <!-- Menu Toggle Button -->
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <!-- The user image in the navbar-->
-                <img src="<?= base_url('assets4/')?>dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                  <?php   
+                      foreach($data->result() as $data){
+                    if(!empty($data->FOTO)){
+                   ?>
+                <img src="<?= base_url('upload/'.$data->FOTO)?>" class="user-image" alt="User Image">
+              <?php   }
+
+              else{
+                ?>
+                <img src="<?= base_url('upload/'.$data->FOTO)?>" class="user-image" alt="User Image">
+                <?php
+              } ?>
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 <span class="hidden-xs">
                   <?php 
-                      foreach($data->result() as $data){
                         echo $data->NAMALENGKAP;
-                      }
                    ?>
                 </span>
               </a>
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
                 <li class="user-header">
-                  <img src="<?= base_url('assets4/')?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+                  <?php   
+                    if(!empty($data->FOTO)){
+                   ?>
+                  <img src="<?= base_url('upload/'.$data->FOTO)?>" class="img-circle" alt="User Image">
+                    <?php   } ?>
                   <p>
                     <?= $data->NAMALENGKAP; ?>
                     <small><?= $data->NISN; ?></small>
@@ -102,31 +118,15 @@
                 <!-- Menu Body -->
                 <li class="user-body">
                   <div class="row">
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
-                    </div>
-                    <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
-                    </div>
-                  </div>
+                    <button type="button" style="color:white;" href="<?= base_url('dashboard/logout')?>" class="btn btn-danger btn-block btn-flat"> Sign out &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"></i></button>
+                   </div>
                   <!-- /.row -->
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                  </div>
-                  <div class="pull-right">
-                    <a href="<?= base_url('dashboard/logout')?>" class="btn btn-default btn-flat">Sign out</a>
-                  </div>
                 </li>
               </ul>
             </li>
           </ul>
         </div>
+      <?php   } ?>
         <!-- /.navbar-custom-menu -->
       </div>
       <!-- /.container-fluid -->
