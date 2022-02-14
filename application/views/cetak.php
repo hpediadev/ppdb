@@ -226,7 +226,7 @@
   		<tr>
   			<td>No. HP Pribadi</td>
   			<td>:</td>
-  			<td><?= $r->HP?></td>
+  			<td>&nbsp;<?= $r->HP?></td>
   		</tr>
   		<tr>
   		<tr>
@@ -237,7 +237,7 @@
   		<tr>
   			<td>No. HP Pribadi</td>
   			<td>:</td>
-  			<td><?= $r->HPAYAH?></td>
+  			<td>&nbsp;<?= $r->HPAYAH?></td>
   		</tr>
   		<tr>
   			<td>Nama Ibu</td>
@@ -252,12 +252,12 @@
   		<tr>
   			<td>Nama Ibu</td>
   			<td>:</td>
-  			<td><?= $r->WALI?></td>
+  			<td>&nbsp;<?= $r->WALI?></td>
   		</tr>
   		<tr>
   			<td>No. HP Wali</td>
   			<td>:</td>
-  			<td><?= $r->HPWALI?></td>
+  			<td>&nbsp;<?= $r->HPWALI?></td>
   		</tr>
   		<tr>
   			<td valign="top">Keterangan Berkas</td>
