@@ -91,10 +91,6 @@
   			<td width="170px">Nama Lengkap</td>
   			<td width="4px">:</td>
   			<td><?= $r->NAMALENGKAP?></td>
-  			<td width="150px" align="center" rowsLpan="19" valign="top">
-  				<img width="130px" src="<?= base64(base_url('upload/'.$r->FOTO))?>">
-
-  			</td>
   		</tr>
   		<tr>
   			<td>NISN</td>
