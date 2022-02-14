@@ -84,7 +84,7 @@ $(document).ready(function() {
             Swal.fire({
                 type: 'warning',
                 title: 'Peringtan',
-                text: 'NIK Tidak Boleh Kosong',
+                text: 'NIK Tidak Boleh Kosong'+tgl,
                 customClass: 'swal-wide',
             });
             
@@ -98,6 +98,30 @@ $(document).ready(function() {
                 customClass: 'swal-wide',
             });
             
+        }
+        else if(tgl.includes("d")){
+            Swal.fire({
+                type: 'warning',
+                title: 'Peringtan',
+                text: 'Silahkan Isi Tanggal Lahir Dengan Tepat',
+                customClass: 'swal-wide',
+            });
+        }
+        else if(tgl.includes("m")){
+            Swal.fire({
+                type: 'warning',
+                title: 'Peringtan',
+                text: 'Silahkan Isi Tanggal Lahir Dengan Tepat',
+                customClass: 'swal-wide',
+            });
+        }
+        else if(tgl.includes("y")){
+            Swal.fire({
+                type: 'warning',
+                title: 'Peringtan',
+                text: 'Silahkan Isi Tanggal Lahir Dengan Tepat',
+                customClass: 'swal-wide',
+            });
         }
         else{
 

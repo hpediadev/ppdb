@@ -51,9 +51,10 @@ class Dashboard extends CI_Controller{
     $rw = $post['rw'];
     $dsn = $post['dsn'];
     $desa = $post['desa'];
-    $kec = $post['kec'];
-    $kab = $post['kab'];
-    $prov = $post['prov'];
+    $kec = $post['camat'];
+    $kab = $post['kota'];
+    $asal = $post['asekolah'];
+    $prov = $post['provinsi'];
 
     $data =array(
       'NAMALENGKAP'=> $nama,
@@ -71,6 +72,7 @@ class Dashboard extends CI_Controller{
       'DESA'=> $desa,
       'KEC'=> $kec,
       'KAB'=> $kab,
+      'ASAL'=> $asal,
       'PROV'=> $prov,
               'MENU'=> 1
     );
@@ -285,7 +287,7 @@ class Dashboard extends CI_Controller{
       $profile = json_decode($json_list, TRUE);
       ?>
       <select name="camat" id="camat" class="form-control" onchange="getdesa(this.value)">
-                        <option value="" selected>-- Silahkan Pilih --</option>
+        <option value="" selected>-- Silahkan Pilih --</option>
       <?php
       foreach($profile as $r){
       ?>
@@ -307,7 +309,7 @@ class Dashboard extends CI_Controller{
       $profile = json_decode($json_list, TRUE);
       ?>
       <select name="desa" id="desa" class="form-control">
-                        <option value="" selected>-- Silahkan Pilih --</option>
+        <option value="" selected>-- Silahkan Pilih --</option>
       <?php
       foreach($profile as $r){
       ?>
@@ -318,6 +320,51 @@ class Dashboard extends CI_Controller{
     </select>
       <?php
     }
+    }
+    public function cetak(){
+
+
+      $nik = $this->session->userdata('nik');
+      $tgl = $this->session->userdata('tgl');
+
+      $this->load->library('ciqrcode');
+  
+    $params['data'] = $nik.' TERVERIFIKASI';
+    $params['level'] = 'H';
+    $params['size'] = 10;
+    $params['savename'] ='upload/'.$nik.'-TERVERIFIKASI.png';
+    $this->ciqrcode->generate($params);
+
+
+      $where = array(
+        'NIK'=> $nik,
+        'TGLLAHIR'=> $tgl
+      );
+      // echo  $this->session->userdata('nik');
+      $where2=array();
+      $data['data'] = $this->Proses->getData('siswabaru', $where);
+      $data['jurusan'] = $this->Proses->getData('tprodi_md', $where2);
+
+      $this->load->library('pdf');
+
+    $this->pdf->setPaper('A4', 'potrait');
+    $this->pdf->filename = "Formulir.pdf";
+    $this->pdf->load_view('cetak', $data);
+
+      // $this->load->view('cetak', $data);
+
+    }
+
+    function qr(){
+      $this->load->library('ciqrcode');
+  
+    $params['data'] = 'This is a text to encode become QR Code';
+    $params['level'] = 'H';
+    $params['size'] = 10;
+    $params['savename'] ='upload/tes.png';
+    $this->ciqrcode->generate($params);
+    
+    echo '<img src="'.base_url('upload/').'tes.png" />';
     }
   
 }

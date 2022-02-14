@@ -141,4 +141,22 @@ class Beranda extends CI_Controller{
     $write->save('php://output');
   
 }
+  public function zip()
+  {
+
+  $directory = 'http://localhost:8080/ppdb/upload';
+
+  $data["images"] = glob($directory);
+       $this->load->library('zip');
+
+
+    $where = array();
+    $sql = $this->Proses->getData('siswabaru', $where)->result();
+    foreach($sql as $row){
+          $this->zip->read_file($row->FOTO);
+    }
+       $this->zip->download(''.time().'.zip');
+
+
+  }
 }

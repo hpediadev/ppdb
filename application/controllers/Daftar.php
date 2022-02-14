@@ -59,12 +59,16 @@ class Daftar extends CI_Controller
       $nik = $this->input->post('nik');
       $tgl = $this->input->post('tgl');
       // dd/mm/yyyy
+      // echo $tgl;
       $tgl = substr($tgl,6,4).'-'.substr($tgl,3,2).'-'.substr($tgl,0,2);
+      
 
       $where = array(
+        'NIK' => $nik,
+        'TGLLAHIR' => $tgl
       );
-      $this->db->where('NIK', $nik)
-      ->or_where('TGLLAHIR', $tgl);
+      // $this->db->where('NIK', $nik)
+      // ->or_where('TGLLAHIR', $tgl);
       $sql = $this->Proses->getData('siswabaru', $where);
       if($sql->num_rows()>0){
         $this->session->set_userdata('nik' , $nik);

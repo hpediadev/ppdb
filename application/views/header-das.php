@@ -20,7 +20,20 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?= base_url('assets4/')?>dist/css/skins/_all-skins.min.css">
 
-  
+  <style type="text/css">
+    .swal-wide{
+        width:400px !important;
+        height:400px !important;
+        font-size: 15px !important;
+        color: red !important;
+    }
+    .swal-loading{
+        width:450px !important;
+        height:250px !important;
+        font-size: 15px !important;
+        color: red !important;
+    }
+</style>
   <!-- Select2 -->
   <link rel="stylesheet" href="<?= base_url('assets4/')?>plugins/select2/select2.min.css">
 
@@ -52,7 +65,7 @@
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?= base_url('dashboard')?>">Pendaftaran <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Cetak Formulir Pendaftaran</a></li>
+            <li><a khref="" onclick="window.open('<?= base_url('dashboard/cetak')?>','new','width=300,height=500')">Cetak Formulir Pendaftaran</a></li>
            <!--  <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -117,8 +130,13 @@
                 </li>
                 <!-- Menu Body -->
                 <li class="user-body">
+                  <style type="text/css">
+                    #clr{
+                      color: white;
+                    }
+                  </style>
                   <div class="row">
-                    <button type="button" style="color:white;" href="<?= base_url('dashboard/logout')?>" class="btn btn-danger btn-block btn-flat"> Sign out &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"></i></button>
+                    <a href="<?= base_url('dashboard/logout')?>"><button type="button" id="clr" href="" class="btn btn-danger btn-bllock btn-flat pull-right"> Sign out &nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-sign-out"></i></button></a>
                    </div>
                   <!-- /.row -->
                 </li>

@@ -14,7 +14,7 @@ $l=''; $p='';
         $l='selected';
         $jk='Laki-laki';
       }
-      else{
+      else if($data->JK==2){
         $p='selected';
         $jk='Perempuan';
       }
@@ -31,6 +31,7 @@ $l=''; $p='';
 <script>
 $(document).ready(function() {
     $("input[type='text']").attr("readonly", true);
+    $("input[type='nomerik']").attr("readonly", true);
     $("input[type='file']").attr("disabled", true);
     $("button[type='submit']").attr("disabled", true);
     $("select").attr("disabled", true);
@@ -78,7 +79,7 @@ $(document).ready(function() {
             </ul>
             <div class="tab-content">
               <div class="<?= $satu?> tab-pane" id="activity">
-                <form class="form-horizontal" id="simpan" methosd="post" actsion="<?= base_url('dashboard/simpandatapribadi')?>">
+                <form class="form-horizontal" id="simpan" method="post" actison="<?= base_url('dashboard/simpandatapribadi')?>">
                   
                   <div class="form-group">
                     <div class="col-sm-12">
@@ -173,7 +174,7 @@ $(document).ready(function() {
                     <label for="inputName" class="col-sm-3 control-label">Asal Sekolah</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->NAMALENGKAP; ?>" id="asekolah" name="asekolah" plc="Name">
+                      <input type="text"  class="form-control" value="<?= $data->ASAL; ?>" id="asekolah" name="asekolah" plc="Name">
                     </div>
                   </div>
                   <div class="form-group">
@@ -187,16 +188,17 @@ $(document).ready(function() {
                     <label for="inputExperience" class="col-sm-3 control-label">No.Reg. Akta Lahir</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->AKTA; ?>" id="akta" name="akta" plc="Name"> 
+                      <input type="nomerik"  class="form-control" value="<?= $data->AKTA; ?>" id="akta" name="akta" plc="Name"> 
                     </div>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">Alamat Jalan</label>
 
                     <div class="col-sm-9">
                       <input type="all"  class="form-control" value="<?= $data->ALAMAT; ?>" id="jalan" name="jalan" plc="Name"> 
                     </div>
-                  </div>
+                  </div> -->
+                  <input type="hidden"  class="form-control" value="<?= $data->ALAMAT; ?>" id="jalan" name="jalan" plc="Name"> 
                   <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">RT</label>
 
@@ -218,7 +220,7 @@ $(document).ready(function() {
                       <input type="text"  class="form-control" value="<?= $data->DSN; ?>" id="dsn" name="dsn" plc="Name"> 
                     </div>
                   </div>
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">Desa</label>
 
                     <div class="col-sm-9">
@@ -245,12 +247,15 @@ $(document).ready(function() {
                     <div class="col-sm-9">
                       <input type="text"  class="form-control" value="<?= $data->PROV; ?>" id="prov" name="prov" plc="Name"> 
                     </div>
-                  </div>
+                  </div> -->
                   <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">Provinsi</label>
 
                     <div class="col-sm-9">
                       <!-- http://www.emsifa.com/api-wilayah-indonesia/api/provinces.json -->
+                      <?php $p= $data->PROV; 
+                        $s='';
+                      ?>
                       <select class="form-control select2" id="provinsi" name="provinsi" onchange="getkota(this.value)">
                         <option value="" selected>-- Silahkan Pilih --</option>
 
@@ -291,9 +296,13 @@ $(document).ready(function() {
                       // echo "<pre>";
                       // print_r($profile);
                       // echo "</pre>";
+                        if($p==$prov['id'])
+                          $s='selected';
+                        else
+                          $s='';
 
                         ?>
-                        <option value="<?php echo $prov['id']; ?>"><?php echo $prov['name']; ?></option>
+                        <option <?= $s?> value="<?php echo $prov['id']; ?>"><?php echo $prov['name']; ?></option>
                         <?php 
                         } ?>
                       </select>
@@ -310,8 +319,31 @@ $(document).ready(function() {
                         <option value="" id="kotaku"></option>
                       </select> -->
                       <div id="dvkecamatan">
+                        <?php 
+                        $s='';
+                        $p= $data->KAB;
+                          if(!empty($data->PROV))
+                          {                            
+                            $id = $data->PROV;
+                            $api_categories_list ='https://www.emsifa.com/api-wilayah-indonesia/api/regencies/'.$id.'.json';
+                            $json_list = file_get_contents($api_categories_list);
+                            $profile = json_decode($json_list, TRUE);
+                          }
+                         ?>
                       <select class="form-control" id="kota" name="kota" onchange="getcamat(this.value)">
-                        <option value="" id=""></option>
+                        <option value="" selected>-- Silahkan Pilih --</option>
+                         <?php
+
+                          foreach($profile as $r){
+                            if($p==$r['id'])
+                              $s='selected';
+                            else
+                              $s='';
+                          ?>
+                            <option <?= $s?> value="<?= $r['id'];?>"><?= $r['name']?></option>
+                          <?php
+                          }
+                          ?>
                       </select>
                       </div>
                     </div>
@@ -324,8 +356,32 @@ $(document).ready(function() {
                         <option value="" id="kotaku"></option>
                       </select> -->
                       <div id="divcamat">
+
+                        <?php 
+                        $s='';
+                        $p= $data->KEC;
+                          if(!empty($data->KAB))
+                          {                            
+                            $id = $data->KAB;
+                            $api_categories_list ='http://www.emsifa.com/api-wilayah-indonesia/api/districts/'.$id.'.json';
+                            $json_list = file_get_contents($api_categories_list);
+                            $profile = json_decode($json_list, TRUE);
+                          }
+                         ?>
                       <select class="form-control" id="camat" name="camat" onchange="getdesa(this.value)">
-                        <option value="" id=""></option>
+                        <option value="" selected>-- Silahkan Pilih --</option>
+                         <?php
+
+                          foreach($profile as $r){
+                            if($p==$r['id'])
+                              $s='selected';
+                            else
+                              $s='';
+                          ?>
+                            <option <?= $s?> value="<?= $r['id'];?>"><?= $r['name']?></option>
+                          <?php
+                          }
+                          ?>
                       </select>
                       </div>
                     </div>
@@ -338,8 +394,32 @@ $(document).ready(function() {
                         <option value="" id="kotaku"></option>
                       </select> -->
                       <div id="divdesa">
+                        <?php 
+                        $s='';
+                        $p= $data->DESA;
+                          if(!empty($data->KEC))
+                          {                            
+                            $id = $data->KEC;
+                            $api_categories_list ='http://www.emsifa.com/api-wilayah-indonesia/api/villages/'.$id.'.json';
+                            $json_list = file_get_contents($api_categories_list);
+                            $profile = json_decode($json_list, TRUE);
+                          }
+                         ?>
                       <select class="form-control" id="desa" name="desa" >
-                        <option value="" id=""></option>
+                        <option value="" selected>-- Silahkan Pilih --</option>
+                         <?php
+
+                          foreach($profile as $r){
+                            if($p==$r['id'])
+                              $s='selected';
+                            else
+                              $s='';
+                          ?>
+                            <option <?= $s?> value="<?= $r['id'];?>"><?= $r['name']?></option>
+                          <?php
+                          }
+                          ?>
+                      </select>
                       </select>
                       </div>
                     </div>
@@ -960,7 +1040,7 @@ $(document).ready(function() {
                     <label for="inputExperience" class="col-sm-3 control-label">Tinggi Badan (cm)</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->TINGGI; ?>" id="tinggi" name="tinggi" plc="Name"> 
+                      <input type="nomerik" maxlength="3" class="form-control" value="<?= $data->TINGGI; ?>" id="tinggi" name="tinggi" plc="Name"> 
                       <input type="hidden"  class="form-control" value="<?= $data->NIK; ?>" id="email" name="email" plc="Name"> 
                     </div>
                   </div>
@@ -968,21 +1048,21 @@ $(document).ready(function() {
                     <label for="inputExperience" class="col-sm-3 control-label">Berat Badan (kg)</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->BERAT; ?>" id="berat" name="berat" plc="Name"> 
+                      <input type="nomerik" maxlength="3" class="form-control" value="<?= $data->BERAT; ?>" id="berat" name="berat" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">Jarak Ke Sekolah (km)</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->JARAK; ?>" id="jarak" name="jarak" plc="Name"> 
+                      <input type="nokartu" maxlength="4" class="form-control" value="<?= $data->JARAK; ?>" id="jarak" name="jarak" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">Waktu Tempuh (jam:menit)</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->WAKTUTEMPUH; ?>" id="waktu" name="waktu" plc="Name"> 
+                      <input type="waktu"  class="form-control" value="<?= $data->WAKTUTEMPUH; ?>" id="waktu" name="waktu" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
@@ -1028,35 +1108,78 @@ $(document).ready(function() {
                     <label for="inputExperience" class="col-sm-3 control-label">Moda Transportasi</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->KENDARAAN; ?>" id="transportasi" name="transportasi" plc="Name"> 
+                      <?php 
+                        $a='';
+                        $b='';
+                        $c='';
+                        $d='';
+                        $e='';
+                        $f='';
+                        $g='';
+                        if($data->KENDARAAN=='Angkutan Umum')
+                          $a='selected';
+                        else if($data->KENDARAAN=='Mobil Antar Jemput')
+                          $b='selected';
+                        else if($data->KENDARAAN=='Ojek')
+                          $c='selected';
+                        else if($data->KENDARAAN=='Sepeda')
+                          $d='selected';
+                        else if($data->KENDARAAN=='Sepeda Motor')
+                          $e='selected';
+                        else if($data->KENDARAAN=='Jalan Kaki')
+                          $f='selected';
+                        else if($data->KENDARAAN=='Lainnya')
+                          $g='selected';
+                       ?>
+                       <select id="transportasi" name="transportasi" class="form-control" >
+                          <option value="" selected>-- Silahkan Pilih --</option>
+                          <option value="Angkutan Umum">Angkutan Umum</option>
+                          <option <?= $a?> value="Mobil Antar Jemput">Mobil Antar Jemput</option>
+                          <option <?= $b?> value="Ojek">Ojek</option>
+                          <option <?= $c?> value="Sepeda">Sepeda</option>
+                          <option <?= $d?> value="Sepeda Motor">Sepeda Motor</option>
+                          <option <?= $f?> value="Jalan Kaki">Jalan Kaki</option>
+                          <option <?= $g?> value="Lainnya">Lainnya</option>
+                        </select>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">Anak Ke Berapa</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->ANAKKE; ?>" id="anakke" name="anakke" plc="Name"> 
+                      <input type="nomerik" maxlength="2"  class="form-control" value="<?= $data->ANAKKE; ?>" id="anakke" name="anakke" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">No. KKS (Jika Ada)</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->NOKKS; ?>" id="nokks" name="nokks" plc="Name"> 
+                      <input type="nokartu"  class="form-control" value="<?= $data->NOKKS; ?>" id="nokks" name="nokks" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">Penerima PKS / PKH</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->PKH; ?>" id="pkh" name="pkh" plc="Name"> 
+                       <select id="pkh" name="pkh" class="form-control" >
+                        <?php 
+                        $a=''; $b='';
+                          if($data->PKH=='Ya')
+                            $a='selected';
+                          else if($data->PKH=='Tidak')
+                            $b='selected';
+                         ?>
+                          <option value="" selected>-- Silahkan Pilih --</option>
+                          <option <?= $a?> value="Ya">Ya</option>
+                          <option <?= $b?> value="Tidak">Tidak</option>
+                        </select>
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputExperience" class="col-sm-3 control-label">No. PKS / PKH</label>
 
                     <div class="col-sm-9">
-                      <input type="text"  class="form-control" value="<?= $data->NOPKH; ?>" id="nopkh" name="nopkh" plc="Name"> 
+                      <input type="nokartu"  class="form-control" value="<?= $data->NOPKH; ?>" id="nopkh" name="nopkh" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
@@ -1083,12 +1206,7 @@ $(document).ready(function() {
                         <label>
                           <input type="checkbox" name="cek" id="cek"> 
                       <input type="hidden"  class="form-control" value="<?= $data->NIK; ?>" id="email" name="email" plc="Name"> 
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                          Saya menyatakan dengan sesungguhnya bahwa isian data dalam formulir ini adalah benar. Apabila ternyata data tersebut tidak benar / palsu, maka saya bersedia menerima sanksi berupa Pembatalan sebagai Calon Peserta Didik SMK Putra Bangsa
                         </label>
                       </div>
                     </div>
@@ -1405,7 +1523,7 @@ $(document).ready(function() {
 
               <p class="text-muted text-center"><?= $data->JURUSAN?></p>
 
-              <ul class="list-group list-group-unbordered">
+              <!-- <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
                   <b>Followers</b> <a class="pull-right">1,322</a>
                 </li>
@@ -1417,7 +1535,7 @@ $(document).ready(function() {
                 </li>
               </ul>
 
-              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+              <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a> -->
             </div>
             <!-- /.box-body -->
           </div>
@@ -1426,7 +1544,7 @@ $(document).ready(function() {
           <!-- About Me Box -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">About Me</h3>
+              <h3 class="box-title">Pengumuman</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -1505,6 +1623,35 @@ $(document).ready(function() {
     }
  
   $(this).val(teksOke.join(""));        
+  });$('input[type="nokartu"]').on('keyup',function(e){
+    let teks = $(this).val();
+    let charAggree = "1234567890.";
+     
+    let teksSplit = teks.split("");
+    let teksOke = [];
+ 
+    for(let i=0;i<teksSplit.length;i++){
+      if(charAggree.indexOf(teksSplit[i])!=-1){
+        teksOke.push(teksSplit[i]);
+      }
+    }
+ 
+  $(this).val(teksOke.join(""));        
+  });
+  $('input[type="waktu"]').on('keyup',function(e){
+    let teks = $(this).val();
+    let charAggree = "1234567890:";
+     
+    let teksSplit = teks.split("");
+    let teksOke = [];
+ 
+    for(let i=0;i<teksSplit.length;i++){
+      if(charAggree.indexOf(teksSplit[i])!=-1){
+        teksOke.push(teksSplit[i]);
+      }
+    }
+ 
+  $(this).val(teksOke.join(""));        
   });
 </script>
 <script type="text/javascript">
@@ -1563,8 +1710,8 @@ $(document).ready(function() {
                     if(data.length>0)
                         {
                             document.getElementById("dvkecamatan").innerHTML = data
-                            document.getElementById("divcamat").innerHTML= '<select class="form-control"><option>-- Silahkan Pilih --</option></select>';
-                            document.getElementById("divdesa").innerHTML= '<select class="form-control"><option>-- Silahkan Pilih --</option></select>';
+                            document.getElementById("divcamat").innerHTML= '<select id="camat" name="camat" class="form-control"><option value="">-- Silahkan Pilih --</option></select>';
+                            document.getElementById("divdesa").innerHTML= '<select id="desa" name="desa" class="form-control"><option  value="">-- Silahkan Pilih --</option></select>';
                         }
                     else
                         {
@@ -2433,12 +2580,24 @@ $(document).ready(function() {
             Swal.fire({
                 type: 'warning',
                 title: 'Peringtan',
-                text: 'Email Tidak Boleh Kosong'+cek,
+                text: 'Silahkan Centang Dulu',
                 customClass: 'swal-wide',
             });
             
         }
         else{
+          Swal.fire({
+          title: 'Apakah Anda Yakin??',
+        type: 'question',
+        text: 'Setelah Anda Menyelesaikan Pendaftaran Ini Anda Tidak Bisa Mengedit Kembali Data Anda. Mohon Cek Kembali Kelengkapan Data Anda',
+        customClass: 'swal-wide',
+        showCancelButton: true,
+        confirmButtonColor: 'green',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Yakin',
+        cancelButtonText: 'Tidak'
+   }).then((result) => {
+    if (result.value) {
 
             <?php 
                 $this->session->set_userdata('val','datasave');
@@ -2505,6 +2664,8 @@ $(document).ready(function() {
                 }
                }
            });
+    }
+   });
         }
         
      });
