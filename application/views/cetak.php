@@ -266,7 +266,7 @@
   		<tr>
   			<td valign="top">Keterangan Berkas</td>
   			<td valign="top">:</td>
-  			<td colspan="2">
+  			<td colspanS="2">
   				<table width="100%" border="1" style="font-size:12px; font-family: 'Times New Roman';border-collapse: collapse;" >
   					<tr>
   						<th>Nama Berkas</th>
