@@ -65,7 +65,7 @@
 
 
   	 ?>
-  	 <table width="100%" border="1">
+  	 <table width="100%">
 		<tr>
 			<td  width="70px">
 				<img  width="70px" src="<?= base64(base_url('logo.png'))?>">
@@ -86,11 +86,15 @@
   	 	</tr>
   	 </table>
   	 <u><h3 align="center">FORMULIR PENDAFTARAN</h3></u>
-  	<table id="bdy" border="1" width="100%" style="border-collapse: collapse;">
+  	<table id="bdy" border="0" width="100%" style="border-collapse: collapse;">
   		<tr>
   			<td width="170px">Nama Lengkap</td>
   			<td width="4px">:</td>
   			<td><?= $r->NAMALENGKAP?></td>
+  			<td width="150px" align="center" rowspan="19" valign="top">
+  				<img width="130px" src="<?= base64(base_url('upload/'.$r->NIK.'-TERVERIFIKASI.png'))?>">
+
+  			</td>
   		</tr>
   		<tr>
   			<td>NISN</td>
@@ -224,20 +228,9 @@
   			<td><?= $d?></td>
   		</tr>
   		<tr>
-  			<td>No. HP Pribadi</td>
-  			<td>:</td>
-  			<td>&nbsp;<?= $r->HP?></td>
-  		</tr>
-  		<tr>
-  		<tr>
   			<td>Nama Ayah</td>
   			<td>:</td>
   			<td><?= $r->AYAH?></td>
-  		</tr>
-  		<tr>
-  			<td>No. HP Pribadi</td>
-  			<td>:</td>
-  			<td>&nbsp;<?= $r->HPAYAH?></td>
   		</tr>
   		<tr>
   			<td>Nama Ibu</td>
@@ -245,25 +238,52 @@
   			<td><?= $r->IBU?></td>
   		</tr>
   		<tr>
-  			<td>No. HP Ayah</td>
+  			<td>Nama Wali</td>
   			<td>:</td>
-  			<td><?= $r->HPIBU?></td>
-  		</tr>
-  		<tr>
-  			<td>Nama Ibu</td>
-  			<td>:</td>
-  			<td>&nbsp;<?= $r->WALI?></td>
-  		</tr>
-  		<tr>
-  			<td>No. HP Wali</td>
-  			<td>:</td>
-  			<td>&nbsp;<?= $r->HPWALI?></td>
+  			<td><?= $r->WALI?></td>
   		</tr>
   		<tr>
   			<td valign="top">Keterangan Berkas</td>
   			<td valign="top">:</td>
-  			<td colspanS="2">
-  				
+  			<td colspan="2">
+  				<table width="100%" border="1" style="font-size:12px; font-family: 'Times New Roman';border-collapse: collapse;" >
+  					<tr>
+  						<th>Nama Berkas</th>
+  						<th>Upload</th>
+  						<th>Validasi</th>
+  						<th>Keterangan</th>
+  					</tr>
+  					<tr>
+  						<td>Kartu Keluarga</td>
+  						<td>Ya</td>
+  						<td>Ya</td>
+  						<td>Sudah Di Verifikasi</td>
+  					</tr>
+  					<tr>
+  						<td>Akta Kelahiran</td>
+  						<td>Ya</td>
+  						<td>Ya</td>
+  						<td>Sudah Di Verifikasi</td>
+  					</tr>
+  					<tr>
+  						<td>Surat Keterangan Lulus</td>
+  						<td>Ya</td>
+  						<td>Ya</td>
+  						<td>Sudah Di Verifikasi</td>
+  					</tr>
+  					<tr>
+  						<td>Ijazah</td>
+  						<td>Ya</td>
+  						<td>Ya</td>
+  						<td>Sudah Di Verifikasi</td>
+  					</tr>
+  					<tr>
+  						<td>SKHU</td>
+  						<td>Ya</td>
+  						<td>Ya</td>
+  						<td>Sudah Di Verifikasi</td>
+  					</tr>
+  				</table>
   			</td>
   		</tr>
   	</table>
