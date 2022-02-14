@@ -86,7 +86,7 @@
   	 	</tr>
   	 </table>
   	 <u><h3 align="center">FORMULIR PENDAFTARAN</h3></u>
-  	<table id="bdy" border="0" width="100%" style="border-collapse: collapse;">
+  	<table id="bdy" border="1" width="100%" style="border-collapse: collapse;">
   		<tr>
   			<td width="170px">Nama Lengkap</td>
   			<td width="4px">:</td>
