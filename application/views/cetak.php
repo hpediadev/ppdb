@@ -65,7 +65,7 @@
 
 
   	 ?>
-  	 <table width="100%">
+  	 <table width="100%" border="1">
 		<tr>
 			<td  width="70px">
 				<img  width="70px" src="<?= base64(base_url('logo.png'))?>">
