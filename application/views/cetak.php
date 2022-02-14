@@ -267,44 +267,7 @@
   			<td valign="top">Keterangan Berkas</td>
   			<td valign="top">:</td>
   			<td colspanS="2">
-  				<table width="100%" border="1" style="font-size:12px; font-family: 'Times New Roman';border-collapse: collapse;" >
-  					<tr>
-  						<th>Nama Berkas</th>
-  						<th>Upload</th>
-  						<th>Validasi</th>
-  						<th>Keterangan</th>
-  					</tr>
-  					<tr>
-  						<td>Kartu Keluarga</td>
-  						<td>Ya</td>
-  						<td>Ya</td>
-  						<td>Sudah Di Verifikasi</td>
-  					</tr>
-  					<tr>
-  						<td>Akta Kelahiran</td>
-  						<td>Ya</td>
-  						<td>Ya</td>
-  						<td>Sudah Di Verifikasi</td>
-  					</tr>
-  					<tr>
-  						<td>Surat Keterangan Lulus</td>
-  						<td>Ya</td>
-  						<td>Ya</td>
-  						<td>Sudah Di Verifikasi</td>
-  					</tr>
-  					<tr>
-  						<td>Ijazah</td>
-  						<td>Ya</td>
-  						<td>Ya</td>
-  						<td>Sudah Di Verifikasi</td>
-  					</tr>
-  					<tr>
-  						<td>SKHU</td>
-  						<td>Ya</td>
-  						<td>Ya</td>
-  						<td>Sudah Di Verifikasi</td>
-  					</tr>
-  				</table>
+  				
   			</td>
   		</tr>
   	</table>
