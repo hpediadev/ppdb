@@ -66,6 +66,7 @@ class Dashboard extends CI_Controller{
       'NOKK'=> $kk,
       'AKTA'=> $akta,
       'ALAMAT'=> $jalan,
+      'HP'=> $post['hp'],
       'RT'=> $rt,
       'RW'=> $rw,
       'DSN'=> $dsn,
@@ -348,7 +349,7 @@ class Dashboard extends CI_Controller{
       $this->load->library('pdf');
 
     $this->pdf->setPaper('A4', 'potrait');
-    $this->pdf->filename = "Formulir.pdf";
+    $this->pdf->filename = "Formulir-Pendaftaran-Peserta-Didik-Baru.pdf";
     $this->pdf->load_view('cetak', $data);
 
       // $this->load->view('cetak', $data);

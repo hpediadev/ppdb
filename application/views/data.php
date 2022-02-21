@@ -90,14 +90,19 @@ $(document).ready(function() {
                     <label for="inputExperience" class="col-sm-3 control-label">NIK</label>
 
                     <div class="col-sm-9">
-                      <input type="text" readonly  class="form-control" value="<?= $data->NIK; ?>" id="nik" name="nik" plc="Name"> 
+                      <input type="text" readonly class="form-control" value="<?= $data->NIK; ?>" id="nik" name="nik" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
                     <label for="inputSkills" class="col-sm-3 control-label">Tanggal Lahir</label>
 
+                    <?php 
+                      $tgl = $data->TGLLAHIR;
+                      $tgl = substr($tgl,8,2).'-'.substr($tgl,5,2).'-'.substr($tgl,0,4);
+                     ?>
                     <div class="col-sm-9">
-                      <input type="text" readonly class="form-control" value="<?= $data->TGLLAHIR; ?>" id="tgl" name="tgl" plc="Name"> 
+                      <input type="text" readonly class="form-control" value="<?= $tgl; ?>" plc="Name"> 
+                      <input type="hidden" readonly class="form-control" value="<?= $data->TGLLAHIR; ?>" id="tgl" name="tgl" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
@@ -168,6 +173,13 @@ $(document).ready(function() {
 
                     <div class="col-sm-9">
                       <input type="email"  class="form-control" value="<?= $data->EMAIL; ?>" id="email" name="email" plc="Name"> 
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="inputExperience" class="col-sm-3 control-label">No. Hp Pribadi</label>
+
+                    <div class="col-sm-9">
+                      <input type="nomerik"  class="form-control" value="<?= $data->HP; ?>" id="hp" name="hp" plc="Name"> 
                     </div>
                   </div>
                   <div class="form-group">
@@ -1517,8 +1529,11 @@ $(document).ready(function() {
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
+              <?php 
+                if(!empty($data->FOTO)){
+               ?>
               <img class="profile-user-img img-responsive img-circle" src="<?= base_url('upload/'.$data->FOTO)?>" alt="User profile picture">
-
+            <?php } ?>
               <h3 class="profile-username text-center"><?= $data->NAMALENGKAP?></h3>
 
               <p class="text-muted text-center"><?= $data->JURUSAN?></p>

@@ -105,7 +105,7 @@
 
               else{
                 ?>
-                <img src="<?= base_url('upload/'.$data->FOTO)?>" class="user-image" alt="User Image">
+                <!-- <img src="<?= base_url('upload/'.$data->FOTO)?>" class="user-image" alt="User Image"> -->
                 <?php
               } ?>
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->

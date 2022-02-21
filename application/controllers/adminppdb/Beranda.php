@@ -26,6 +26,8 @@ class Beranda extends CI_Controller{
   }
 
   function index(){
+
+    
     $where = array(
     );
     // echo  $this->session->userdata('nik');
@@ -121,6 +123,23 @@ class Beranda extends CI_Controller{
 
     // push data
     $i = 2; //starting row
+    $no=0;
+    $sheet->setCellValue($alphabet[0].'1', 'NO');
+      $sheet->setCellValue($alphabet[1].'1', 'NO. Peserta');
+      $sheet->setCellValue($alphabet[2].'1', 'Nama Lengkap');
+      $sheet->setCellValue($alphabet[3].'1', 'NISN');
+      $sheet->setCellValue($alphabet[4].'1', 'NIK');
+      $sheet->setCellValue($alphabet[5].'1', 'Tempat Lahir');
+      $sheet->setCellValue($alphabet[6].'1', 'Tgl Lahir');
+      $sheet->setCellValue($alphabet[7].'1', 'No. Akta');
+      $sheet->setCellValue($alphabet[8].'1', 'Asal Sekolah');
+      $sheet->setCellValue($alphabet[9].'1', 'Dusun');
+      $sheet->setCellValue($alphabet[10].'1', 'Desa');
+      $sheet->setCellValue($alphabet[11].'1', 'Kecamatan');
+      $sheet->setCellValue($alphabet[12].'1', 'Kabupaten');
+      $sheet->setCellValue($alphabet[13].'1', 'Provinsi');
+      $sheet->setCellValue($alphabet[14].'1', 'Ayah');
+      $sheet->setCellValue($alphabet[15].'1', 'Ibu');
     foreach( $getdata as $get ) {
       // $n=0;
       // foreach ($fields as $field) {
@@ -128,8 +147,24 @@ class Beranda extends CI_Controller{
       //   $n++;
       // }
        // $sheet->setCellValue("1", $get->IDS);
-      $sheet->setCellValue($alphabet[0].$i, $get->IDS);
-      $sheet->setCellValue($alphabet[1].$i, $get->NAMALENGKAP);
+      $no++;
+          // $xlsx->getActiveSheet()->getStyle($alphabet[0].'1:'.$alphabet[$num_col-1].$i)->applyFromArray($style);
+      $sheet->setCellValue($alphabet[0].$i, $no);
+      $sheet->setCellValue($alphabet[1].$i, $get->NOPESERTA);
+      $sheet->setCellValue($alphabet[2].$i, $get->NAMALENGKAP);
+      $sheet->setCellValue($alphabet[3].$i, $get->NISN);
+      $sheet->setCellValue($alphabet[4].$i, "'".$get->NIK);
+      $sheet->setCellValue($alphabet[5].$i, $get->TMPLAHIR);
+      $sheet->setCellValue($alphabet[6].$i, $get->TGLLAHIR);
+      $sheet->setCellValue($alphabet[7].$i, "'".$get->AKTA);
+      $sheet->setCellValue($alphabet[8].$i, $get->ASAL);
+      $sheet->setCellValue($alphabet[9].$i, $get->DSN);
+      $sheet->setCellValue($alphabet[10].$i, $get->DESA);
+      $sheet->setCellValue($alphabet[11].$i, $get->KEC);
+      $sheet->setCellValue($alphabet[12].$i, $get->KAB);
+      $sheet->setCellValue($alphabet[13].$i, $get->PROV);
+      $sheet->setCellValue($alphabet[14].$i, $get->AYAH);
+      $sheet->setCellValue($alphabet[15].$i, $get->IBU);
       $i++;
 
     }
@@ -158,5 +193,23 @@ class Beranda extends CI_Controller{
        $this->zip->download(''.time().'.zip');
 
 
+  }
+  public function validasi($id)
+  {
+    $where = array('IDS'=> $id);
+    $data['data'] = $this->Proses->getData('siswabaru', $where);
+    $this->load->view('header-adm', $data);
+    $this->load->view('formvalidasi', $data);
+    $this->load->view('footer-adm', $data);
+  }
+  public function receiveValidasi($id, $ids)
+  {
+    $where = array('IDS'=> $ids);
+    $data = array('VFOTO'=> '1');
+    $sql = $this->Proses->updateData('siswabaru', $data, $where);
+    if($sql>0)
+        echo json_encode(array('success' => 1, 'message' => 'Selamat... Data Sukses Di Validasi'));
+    else
+        echo json_encode(array('success' => 2, 'message' => 'Selamat... Data Gagal Di Validasi'));
   }
 }

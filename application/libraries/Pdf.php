@@ -10,7 +10,7 @@ class Pdf extends Dompdf{
   public function __construct()
   {
     parent::__construct();
-    $this->filename = "cetak.pdf";
+    $this->filename = "Formulir-Pendaftaran-Peserta-Didik-Baru.pdf";
   }
 
   function ci()
@@ -24,7 +24,7 @@ class Pdf extends Dompdf{
     $html = $this->ci()->load->view($view,$data,true);
     $this->load_html($html);
     $this->render();
-    $this->stream($this->filename, array('Attachment' => false));
+    $this->stream($this->filename, array('Attachment' => true));
   }
 
 }

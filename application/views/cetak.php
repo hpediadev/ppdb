@@ -1,4 +1,9 @@
+<title>Formulir-Pendaftaran-Peserta-Didik-Baru.pdf</title>
 <style type="text/css">
+	html{
+		margin-top: 15PX;
+		margin-bottom: 15PX;
+	}
 /*	#bdy, body {
   margin: 0;
   padding: 0;
@@ -52,6 +57,10 @@
 <div class="book">
   <div class="page">
   	<?php 
+
+
+  			 $bln = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
+
   	function base64($img)
   	{
 
@@ -85,13 +94,13 @@
   	 		<td colspan="3" style="color:#fff" align="center" ><span style="font-family: 'times new roman';font-size: 10pt;">website : http://www.smkpbwaru.sch.id, email :info@smkpbwaru.sch.id</span></td>
   	 	</tr>
   	 </table>
-  	 <u><h3 align="center">FORMULIR PENDAFTARAN</h3></u>
-  	<table id="bdy" border="0" width="100%" style="border-collapse: collapse;">
+  	 <center><u><b align="center">FORMULIR PENDAFTARAN</b></u></center><br>
+  	<table id="bdy" border="0" width="100%" style="border-collapse: collapse;font-size: 11pt;font-family: Arial;">
   		<tr>
   			<td width="170px">Nama Lengkap</td>
   			<td width="4px">:</td>
   			<td><?= $r->NAMALENGKAP?></td>
-  			<td width="150px" align="center" rowspan="19" valign="top">
+  			<td width="150px" align="center" rowspan="22" valign="top">
   				<!-- <img width="130px" src="<?= base64(base_url('upload/'.$r->NIK.'-TERVERIFIKASI.png'))?>"> -->
   				&nbsp;
 
@@ -122,9 +131,13 @@
   			<td><?= $k?></td>
   		</tr>
   		<tr>
+  			<?php 
+          $tgl = $r->TGLLAHIR;
+          $tgl = substr($tgl,8,2).' '.$bln[substr($tgl,5,2)*1].' '.substr($tgl,0,4);
+           ?>
   			<td>Tempat, Tanggal Lahir</td>
   			<td>:</td>
-  			<td><?= $r->TMPLAHIR.', '.$r->TGLLAHIR?></td>
+  			<td><?= $r->TMPLAHIR.', '.$tgl ?></td>
   		</tr>
   		<tr>
   			<td>Email</td>
@@ -157,7 +170,7 @@
   			<td><?= $r->RW?></td>
   		</tr>
   		<tr>
-  			<td>Dusn</td>
+  			<td>Dusun</td>
   			<td>:</td>
   			<td><?= $r->DSN?></td>
   		</tr>
@@ -166,6 +179,7 @@
   				$idjs = $r->KEC;
   				$id = $r->DESA;
   				$d='';
+  				if(!empty($idjs)){
 		        $api_categories_list ='https://www.emsifa.com/api-wilayah-indonesia/api/villages/'.$idjs.'.json';
 		        $json_list = file_get_contents($api_categories_list);
 		        $profile = json_decode($json_list, TRUE);
@@ -173,6 +187,7 @@
 		        	if($js['id']==$id)
 		        		$d=$js['name'];
 		        }
+		      }
          	?>
   			<td>Desa / Kelurahan</td>
   			<td>:</td>
@@ -183,6 +198,7 @@
   				$idjs = $r->KAB;
   				$id = $r->KEC;
   				$d='';
+  				if(!empty($idjs)){
 		        $api_categories_list ='https://www.emsifa.com/api-wilayah-indonesia/api/districts/'.$idjs.'.json';
 		        $json_list = file_get_contents($api_categories_list);
 		        $profile = json_decode($json_list, TRUE);
@@ -190,6 +206,7 @@
 		        	if($js['id']==$id)
 		        		$d=$js['name'];
 		        }
+		      }
          	?>
   			<td>Kecamatan</td>
   			<td>:</td>
@@ -200,6 +217,7 @@
   				$idjs = $r->PROV;
   				$id = $r->KAB;
   				$d='';
+  				if(!empty($idjs)){
 		        $api_categories_list ='https://www.emsifa.com/api-wilayah-indonesia/api/regencies/'.$idjs.'.json';
 		        $json_list = file_get_contents($api_categories_list);
 		        $profile = json_decode($json_list, TRUE);
@@ -207,6 +225,7 @@
 		        	if($js['id']==$id)
 		        		$d=$js['name'];
 		        }
+		      }
          	?>
   			<td>Kabupaten</td>
   			<td>:</td>
@@ -216,6 +235,7 @@
   			<?php 
   				$id = $r->PROV;
   				$d='';
+  				if(!empty($id)){
 		        $api_categories_list ='https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json';
 		        $json_list = file_get_contents($api_categories_list);
 		        $profile = json_decode($json_list, TRUE);
@@ -223,10 +243,16 @@
 		        	if($js['id']==$id)
 		        		$d=$js['name'];
 		        }
+		      }
          	?>
   			<td>Provinsi</td>
   			<td>:</td>
   			<td><?= $d?></td>
+  		</tr>
+  		<tr>
+  			<td>No. Hp Pribadi</td>
+  			<td>:</td>
+  			<td><?= $r->HP?></td>
   		</tr>
   		<tr>
   			<td>Nama Ayah</td>
@@ -234,9 +260,19 @@
   			<td><?= $r->AYAH?></td>
   		</tr>
   		<tr>
+  			<td>No. Hp Ayah</td>
+  			<td>:</td>
+  			<td><?= $r->HPAYAH?></td>
+  		</tr>
+  		<tr>
   			<td>Nama Ibu</td>
   			<td>:</td>
   			<td><?= $r->IBU?></td>
+  		</tr>
+  		<tr>
+  			<td>No. Hp Ibu</td>
+  			<td>:</td>
+  			<td><?= $r->HPIBU?></td>
   		</tr>
   		<tr>
   			<td>Nama Wali</td>
@@ -244,10 +280,15 @@
   			<td><?= $r->WALI?></td>
   		</tr>
   		<tr>
+  			<td>No. Hp Wali</td>
+  			<td>:</td>
+  			<td><?= $r->HPWALI?></td>
+  		</tr>
+  		<tr>
   			<td valign="top">Keterangan Berkas</td>
   			<td valign="top">:</td>
   			<td colspan="2">
-  				<table width="100%" border="1" style="font-size:12px; font-family: 'Times New Roman';border-collapse: collapse;" >
+  				<table width="100%" border="1" style="font-size:10pt; font-family: 'Arial';border-collapse: collapse;" cellpadding="2px">
   					<tr>
   						<th>Nama Berkas</th>
   						<th>Upload</th>
@@ -255,48 +296,108 @@
   						<th>Keterangan</th>
   					</tr>
   					<tr>
-  						<td>Kartu Keluarga</td>
+  						<td>Foto 3 x 4</td>
+  						<td>
+  							<?php 
+  								if(!empty($r->FOTO))
+  									echo 'Ya';
+  								else
+  									echo "Tidak";
+  							 ?>
+  						</td>
   						<td>Ya</td>
+  						<td>Sudah Di Verifikasi</td>
+  					</tr>
+  					<tr>
+  						<td>Kartu Keluarga</td>
+  						<td>
+  							<?php 
+  								if(!empty($r->KK))
+  									echo 'Ya';
+  								else
+  									echo "Tidak";
+  							 ?>  						
+  						</td>
   						<td>Ya</td>
   						<td>Sudah Di Verifikasi</td>
   					</tr>
   					<tr>
   						<td>Akta Kelahiran</td>
-  						<td>Ya</td>
+  						<td>
+  							<?php 
+  								if(!empty($r->AKTA))
+  									echo 'Ya';
+  								else
+  									echo "Tidak";
+  							 ?>
+  						</td>
   						<td>Ya</td>
   						<td>Sudah Di Verifikasi</td>
   					</tr>
   					<tr>
   						<td>Surat Keterangan Lulus</td>
-  						<td>Ya</td>
+  						<td>
+  							<?php 
+  								if(!empty($r->SKL))
+  									echo 'Ya';
+  								else
+  									echo "Tidak";
+  							 ?>
+  						</td>
   						<td>Ya</td>
   						<td>Sudah Di Verifikasi</td>
   					</tr>
   					<tr>
   						<td>Ijazah</td>
-  						<td>Ya</td>
+  						<td>
+  							<?php 
+  								if(!empty($r->IJAZAH))
+  									echo 'Ya';
+  								else
+  									echo "Tidak";
+  							 ?>
+  						</td>
   						<td>Ya</td>
   						<td>Sudah Di Verifikasi</td>
   					</tr>
   					<tr>
   						<td>SKHU</td>
-  						<td>Ya</td>
-  						<td>Ya</td>
+  						<td>
+  							<?php 
+  								if(!empty($r->SKHU))
+  									echo 'Ya';
+  								else
+  									echo "Tidak";
+  							 ?>
+  						</td>
+  						<td>
+  							<?php 
+  								if(substr($r->VSKHU, 0, 1)==1)
+  									echo 'Sukses';
+  								else if(substr($r->VSKHU, 0, 1)==0)
+  									echo "Gagal ";
+  							 ?>
+  						</td>
   						<td>Sudah Di Verifikasi</td>
   					</tr>
   				</table>
   			</td>
   		</tr>
+  		<tr>
+  			<td colspan="4" style="font-weight:bold;">
+  				Pernyataan
+  			</td>
+  		</tr>
+  		<tr>
+  			<td colspan="4" align="justify">
+  				Saya menyatakan dengan sesungguhnya bahwa isian data dalam formulir ini adalah benar. Apabila ternyata data tersebut tidak benar / palsu, maka saya bersedia menerima sanksi berupa Pembatalan sebagai Calon Peserta Didik SMK Putra Bangsa
+				  	
+  			</td>
+  		</tr>
   	</table>
-  	<br>
                         </td>
-  	<b>Pernyataan</b>
-  	<p>Saya menyatakan dengan sesungguhnya bahwa isian data dalam formulir ini adalah benar. Apabila ternyata data tersebut tidak benar / palsu, maka saya bersedia menerima sanksi berupa Pembatalan sebagai Calon Peserta Didik SMK Putra Bangsa
-  	</p>
-  	<?php 
-  			 $bln = array('','Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember');
-  	 ?>
-  	<table id="bdy" width="100%" border="0">
+  
+  	<table id="bdy" width="100%" border="0" style="font-size: 11pt;">
   		<tr>
   			<td width="50%" align="center">
   				<br>
@@ -304,12 +405,12 @@
   			</td>
   			<td width="50%" align="right">
   				<br>
-  				<img width="130px" src="<?= base64(base_url('upload/'.$r->FOTO))?>">
+  				<img width="100px" src="<?= base64(base_url('upload/'.$r->FOTO))?>">
   			</td>
   			<td width="50%" align="center">
   				Pamekasan, <?php echo date('d').' '.$bln[date('n')].' '.date('Y'); ?>
   				<br>Calon Siswa Baru,
-  				<br><br><br><br><br><br>
+  				<br><br><br><br>
   				<b><?= $r->NAMALENGKAP?></b>
   			</td>
   		</tr>

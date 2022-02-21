@@ -49,8 +49,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<?= base_url('dashboard')?>">Pendaftaran <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Cetak Formulir Pendaftaran</a></li>
+            <li class="active"><a href="<?= base_url('adminppdb/beranda')?>">Pendaftaran <span class="sr-only">(current)</span></a></li>
+            <li><a href="<?= base_url('adminppdb/beranda/export')?>">Download Ke Excel</a></li>
            <!--  <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -85,9 +85,10 @@
                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
                 <span class="hidden-xs">
                   <?php 
-                      foreach($dataku->result() as $r){
-                        echo $r->NAMALENGKAP;
-                      }
+                  $b = $this->session->userdata('user_logged');
+                    foreach ($b as $r){
+                      echo $r->NAMA;
+                    
                    ?>
                 </span>
               </a>
@@ -97,8 +98,8 @@
                   <img src="<?= base_url('assets4/')?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                   <p>
-                    <?= $r->NAMALENGKAP; ?>
-                    <small><?= $r->NISN; ?></small>
+                    <?= $r->NAMA; ?>
+                    <small><?= $r->EMAIL; ?></small>
                   </p>
                 </li>
                 <!-- Menu Body -->
@@ -123,6 +124,7 @@
                   </div>
                   <div class="pull-right">
                     <a href="<?= base_url('adminppdb/logout')?>" class="btn btn-default btn-flat">Sign out</a>
+                  <?php } ?>
                   </div>
                 </li>
               </ul>
