@@ -405,7 +405,11 @@
   			</td>
   			<td width="50%" align="right">
   				<br>
+  				<?php 
+  				if(!empty($r->FOTO)){
+  				 ?>
   				<img width="100px" src="<?= base64(base_url('upload/'.$r->FOTO))?>">
+  			<?php } ?>
   			</td>
   			<td width="50%" align="center">
   				Pamekasan, <?php echo date('d').' '.$bln[date('n')].' '.date('Y'); ?>

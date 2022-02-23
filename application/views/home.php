@@ -1,6 +1,25 @@
-<body>
-      
+<!-- <div style="position:fixed;left:20px;bottom:20px;">
+<a href="https://api.whatsapp.com/send?phone=+628123456789&text=Halo">
+<button style="background:#32C03C;vertical-align:center;height:36px;border-radius:5px">
+<img src="https://web.whatsapp.com/img/favicon/1x/favicon.png"> Whatsapp Kami</button></a> -->
 
+<a class="wafixed" href="https://wa.me/62823928XXX" target="_blank">
+<!--   <span class="fa-stack fa-lg">
+  <i class="fa fa-circle fa-stack-2x text-success"></i>
+  <i class="fa fa-whatsapp fa-stack-1x fa-inverse"></i>
+</span> -->
+<img src="https://arrasyidschool.com/wp-content/uploads/2020/12/WhatsApp-Tri-7.gif" width="150px">
+</a>
+<style type="text/css">
+  .wafixed {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 999;
+}
+
+</style>
+</div>
 
     <!-- =====================================
       ==== Start top-nav -->
@@ -9,7 +28,7 @@
             <!-- top nav info -->
             <div class="row">
               <div class="col-md-5">
-                <span> <i class="fa fa-phone"></i> +62 878-3470-2726 / +62 823-3529-8564</span>
+                <span> <i class="fa fa-phone"></i> <i class="fa fa-whatsapp"></i> +62 878-3470-2726 / +62 823-3529-8564</span>
               </div>
               <div class="col-md-4">
                 <span> <i class="fa fa-envelope"></i> <a href="#">ppdb@smkpbwaru.sch.id</a></span>
@@ -46,6 +65,7 @@
                           <h6>Penerimaan Peserta Didik Baru Akan Dimulai Dalam</h6>
                           <div id="flipdown" class="flipdown"></div>
                           <!-- <a class="butn" href="<?= base_url('daftar')?>"> <span>Ayo Daftar Sekarang</span> </a> -->
+                          
                       </div>
 
                      <!--  <div class="header-info items">
@@ -142,11 +162,11 @@
             <div class="col-lg-6">
               <div class="info">
 
-
-                <h3>Alur Pendaftaran Siswa Baru Secara Online</h3>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/THybxgJ0TA0?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <!-- <h3>Alur Pendaftaran Siswa Baru Secara Online</h3>
                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
                 <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                <!-- <a class="butn" href="#"> <span>Show More</span> </a> -->
+                <a class="butn" href="#"> <span>Show More</span> </a> -->
                 
               </div>
             </div>
@@ -154,11 +174,12 @@
             <!-- about image -->
             <div class="col-lg-6">
               <div class="img">
-                <img src="<?= base_url('assets/img/')?>/alur.png" alt="">
+                <img src="<?= base_url('assets/img/')?>/alur.jpg" alt="" width="100%">
               </div>
             </div>
           </div>
         </div>
+
       </section>
     <!-- =====================================
       ==== end about -->
@@ -180,7 +201,7 @@
                     <span><i class="fa fa-desktop"></i></span>
                   </div>
                   <h4>Rekayasa Perangkat Lunak (RPL)</h4>
-                  <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an cule dicta iriure at phaedrum.</p>
+                  <p>Rekayasa Perangkat Lunak (RPL) belajar software komputer mulai dari pembuatan website, aplikasi, game (aplikasi-aplikasi yang digunakan oleh kita sehari-hari) </p>
                 </div>
               </div>
 
@@ -190,7 +211,7 @@
                     <span><i class="fa fa-gears"></i></span>
                   </div>
                   <h4>Teknik Audio Video (TAV)</h4>
-                  <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an cule dicta iriure at phaedrum.</p>
+                  <p>Belajar sound system, memahami multi media perekaman baik suara maupun gambar sampai proses editing dan siap untuk dipublikasikan atau sebagai movie documenter.Terampil dan memahami bidang pertelevisian, system pengoperasian, perawatan dan perbaikan,</p>
                 </div>
               </div>
 
@@ -200,7 +221,7 @@
                     <span><i class="fa fa-mobile-alt"></i></span>
                   </div>
                   <h4>Agribisnis Pengolahan Hasil Pertanian (APHP)</h4>
-                  <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an cule dicta iriure at phaedrum.</p>
+                  <p>Belajar bisnis produk pangan hasil olahan pertanian, teknik dan cara pengolahan hasil pertanian hingga menjadi produk.</p>
                 </div>
               </div>
 
@@ -210,7 +231,7 @@
                     <span><i class="fa fa-clone"></i></span>
                   </div>
                   <h4>Bisnis Daring dan Pemasaran (BDP)</h4>
-                  <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an cule dicta iriure at phaedrum.</p>
+                  <p>Belajar dasar - dasar kemampuan dan keilmuan menjadi seorang marketing baik marketing secara konvensional maupun melalui media daring (online/internet), strategi pasar, kewirausahaan dan membaca peluang di dunia bisnis.</p>
                 </div>
               </div>
 
@@ -219,12 +240,12 @@
                   <div class="icon">
                     <span><i class="fa fa-globe-americas"></i></span>
                   </div>
-                  <h4>Kriya Batik dan Tekstil (KBT)</h4>
-                  <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an cule dicta iriure at phaedrum.</p>
+                  <h4>Kriya Kreatif Batik dan Tekstil (KKBT)</h4>
+                  <p>Belajar menggambar produk kria tekstil, menjahit tindas dan aplikasi, menyulam, tapestry, merenda atau merajut dan yang paling di unggulkan yaitu membatik.</p>
                 </div>
               </div>
 
-              <div class="col-lg-4">
+            <!--   <div class="col-lg-4">
                 <div class="items text-center">
                   <div class="icon">
                     <span><i class="fa fa-headset"></i></span>
@@ -232,7 +253,7 @@
                   <h4>Full Support</h4>
                   <p>Lorem ipsum dolor sit amet, in quodsi vulputate pro. Ius illum vocent mediocritatem an cule dicta iriure at phaedrum.</p>
                 </div>
-              </div>
+              </div> -->
                <!-- end services items -->
 
             </div>
@@ -263,84 +284,11 @@
 
             <!-- our projects -->
               <div class="row items">
-                <div class="col-lg-4 mix Design">
+                <div class="col-lg-12 mix Design">
                   <div class="img">
-                    <img src="<?= base_url('assets/img/')?>/news/3.jpg" alt="">
-                    <div class="overlay">
-                      <div class="info">
-                        <h6>Software</h6>
-                        <h4>Rekayasa Perangkat Lunak (RPL)</h4>
-                      </div>
-                      <a class="icon" data-fancybox="gallery" href="img/news/1.jpg"><i class="fa fa-eye"></i></a>
-                    </div>
+                  <!--  <iframe width="560" height="315" src="https://www.youtube.com/embed/THybxgJ0TA0?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
                   </div>
                 </div>
-
-                <div class="col-lg-4 mix Brand">
-                  <div class="img">
-                    <img src="<?= base_url('assets/img/')?>/news/3.jpg" alt="">
-                    <div class="overlay">
-                      <div class="info">
-                        <h6>Elektro</h6>
-                        <h4>Teknik Audio Video (TAV)</h4>
-                      </div>
-                      <a class="icon" data-fancybox="gallery" href="img/news/2.jpg"><i class="fa fa-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 mix Design">
-                  <div class="img">
-                    <img src="<?= base_url('assets/img/')?>/news/3.jpg" alt="">
-                    <div class="overlay">
-                      <div class="info">
-                        <h6>Food</h6>
-                        <h4>Agribisnis Pengolahan Hasil Pertanian (APHP)</h4>
-                      </div>
-                      <a class="icon" data-fancybox="gallery" href="img/news/3.jpg"><i class="fa fa-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 mix Markting">
-                  <div class="img">
-                    <img src="<?= base_url('assets/img/')?>/news/3.jpg" alt="">
-                    <div class="overlay">
-                      <div class="info">
-                        <h6>Retail</h6>
-                        <h4>Bisnis Daring dan Pemasaran (BDP)</h4>
-                      </div>
-                      <a class="icon" data-fancybox="gallery" href="img/news/3.jpg"><i class="fa fa-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 mix Brand">
-                  <div class="img">
-                    <img src="<?= base_url('assets/img/')?>/news/3.jpg" alt="">
-                    <div class="overlay">
-                      <div class="info">
-                        <h6>Brand</h6>
-                        <h4>Kriya Batik dan Tekstil (KBT)</h4>
-                      </div>
-                      <a class="icon" data-fancybox="gallery" href="img/news/3.jpg"><i class="fa fa-eye"></i></a>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-lg-4 mix Markting">
-                  <div class="img">
-                    <img src="<?= base_url('assets/img/')?>/news/3.jpg" alt="">
-                    <div class="overlay">
-                      <div class="info">
-                        <h6>Markting</h6>
-                        <h4></h4>
-                      </div>
-                      <a class="icon" data-fancybox="gallery" href="img/news/3.jpg"><i class="fa fa-eye"></i></a>
-                    </div>
-                  </div>
-                </div>  
-                <!-- end projects -->                
               </div>
         </div>
       </section>
@@ -348,90 +296,6 @@
     ==== end portfolio -->
 
 
-
-    <!-- =====================================
-    ==== Start team -->
-    <!--   <section class="team section-padding" data-scroll-index="4">
-        <div class="container"> -->
-          <!-- section-head -->
-         <!--  <div class="section-head text-center">
-            <h2 data-text="Team"> <span>Our Team</span> </h2>
-          </div> -->
-
-          <!-- our team -->
-        <!--   <div class="row">
-            <div class="col-lg-3">
-              <div class="item text-center">
-                <div class="img">
-                  <img src="<?= base_url('assets/img/')?>/team/1.jpg" alt="">
-                </div>
-                <h5>Alex Smith</h5>
-                <h6>UI/UX Designer</h6>
-                <div class="social">
-                  <a href="#0"><i class="fa fa-facebook-f"></i></a>
-                  <a href="#0"><i class="fa fa-twitter"></i></a>
-                  <a href="#0"><i class="fa fa-at"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3">
-              <div class="item text-center">
-                <div class="img">
-                  <img src="<?= base_url('assets/img/')?>/team/2.jpg" alt="">
-                </div>
-                <h5>Alex Smith</h5>
-                <h6>UI/UX Designer</h6>
-                <div class="social">
-                  <a href="#0"><i class="fa fa-facebook-f"></i></a>
-                  <a href="#0"><i class="fa fa-twitter"></i></a>
-                  <a href="#0"><i class="fa fa-at"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3">
-              <div class="item text-center">
-                <div class="img">
-                  <img src="<?= base_url('assets/img/')?>/team/3.jpg" alt="">
-                </div>
-                <h5>Alex Smith</h5>
-                <h6>UI/UX Designer</h6>
-                <div class="social">
-                  <a href="#0"><i class="fa fa-facebook-f"></i></a>
-                  <a href="#0"><i class="fa fa-twitter"></i></a>
-                  <a href="#0"><i class="fa fa-at"></i></a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3">
-              <div class="item text-center">
-                <div class="img">
-                  <img src="<?= base_url('assets/img/')?>/team/4.jpg" alt="">
-                </div>
-                <h5>Alex Smith</h5>
-                <h6>UI/UX Designer</h6>
-                <div class="social">
-                  <a href="#0"><i class="fa fa-facebook-f"></i></a>
-                  <a href="#0"><i class="fa fa-twitter"></i></a>
-                  <a href="#0"><i class="fa fa-at"></i></a>
-                </div>
-              </div>
-            </div> -->
-            <!-- end team -->
-         <!--  </div>
-        </div>
-      </section> -->
-
-
-    <!-- =====================================
-    ==== end team -->
-
-
-
-    <!-- =====================================
-    ==== Start clients -->
       <section class="clients section-padding" data-scroll-index="3">
         <div class="container">
             <!-- section-head -->
