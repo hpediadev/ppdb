@@ -65,7 +65,7 @@
                           <h6>Penerimaan Peserta Didik Baru Akan Dimulai Dalam</h6>
                           <div id="flipdown" class="flipdown"></div>
                           <!-- <a class="butn" href="<?= base_url('daftar')?>"> <span>Ayo Daftar Sekarang</span> </a> -->
-                          
+
                       </div>
 
                      <!--  <div class="header-info items">
@@ -316,7 +316,7 @@
 
             <div class="items">
               <div class="item text-center">
-                <p>"<?= substr($r->TESTIMONI,0,200)?> . . . "</p>
+                <p>"<?= substr($r->TESTIMONI,0,500)?> . . . "</p>
                 <div class="img">
                   <img src="https://www.smkpbwaru.sch.id/uploads/artikel/<?= $r->GAMBAR?>" alt="">
                 </div>

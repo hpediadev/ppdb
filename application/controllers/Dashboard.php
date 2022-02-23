@@ -125,9 +125,9 @@ class Dashboard extends CI_Controller{
 
     $sql = $this->Proses->updateData('siswabaru', $data, $where);
     if($sql>0)
-    echo json_encode(array('success' => 1, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+    echo json_encode(array('success' => 1, 'message' => 'Data Wali Orang Tua / Wali Berhasil Disimpan'));
     else
-    echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+    echo json_encode(array('success' => 0, 'message' => 'Data Wali Orang Tua / Wali Gagal Disimpan'));
   }
   function simpandataperiodik(){
     $post = $this->input->post();
@@ -154,9 +154,9 @@ class Dashboard extends CI_Controller{
 
     $sql = $this->Proses->updateData('siswabaru', $data, $where);
     if($sql>0)
-    echo json_encode(array('success' => 1, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+    echo json_encode(array('success' => 1, 'message' => 'Data Periodik Berhasil Disimpan'));
     else
-    echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+    echo json_encode(array('success' => 0, 'message' => 'Data Periodik Berhasil Disimpan'));
   }
 
   function simpanselesai(){
@@ -173,9 +173,9 @@ class Dashboard extends CI_Controller{
 
     $sql = $this->Proses->updateData('siswabaru', $data, $where);
     if($sql>0)
-    echo json_encode(array('success' => 1, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+    echo json_encode(array('success' => 1, 'message' => 'Selamat...! Anda Berhasil Menyelesaikan Pendaftaran, Silahkan Tunggu Validasi dari Admin / Atau Segera Konfirmasi Ke Admin'));
     else
-    echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+    echo json_encode(array('success' => 0, 'message' => 'Penyelesaian Pendaftaran Gagal'));
   }
   function tes($id){
      $config['upload_path']="./upload/";
