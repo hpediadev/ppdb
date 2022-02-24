@@ -9,18 +9,18 @@
   </div>
     <!-- <p class="login-box-msg">Sign in to start your session</p> -->
 
-    <form id="login">
+    <form id="logisn" method="post" action="<?= base_url('adminku/login')?>">
       <div class="form-group has-feedback">
-        <input type="text" id="email" name="email" class="form-control" placeholder="Email/NPSN">
+        <input type="text" id="email" name="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" id="pass" name="pass" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
-      <div class="form-group has-feedback pull-right">
+      <!-- <div class="form-group has-feedback pull-right">
         <a href="<?= base_url('daftar')?>" class="text-center">Saya Lupa Password</a><br>
-      </div>
+      </div> -->
       <div class="row">
         <!-- /.col -->
         <div class="col-xs-12">
@@ -31,7 +31,7 @@
     </form>
 
     <div class="social-auth-links text-center">
-      <p>- ATAU -</p>
+      <!-- <p>- ATAU -</p> -->
      <!--  <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
         Facebook</a>
       <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
@@ -41,11 +41,11 @@
 
     <!-- <a href="#">I forgot my password</a><br> -->
     
-    Belum Punya Akun ?
+    <!-- Belum Punya Akun ?
     <a type="button" href="<?= base_url('daftar')?>" class="btn btn-success btn-block btn-flat">DAFTAR SEKARANG</a>
     <br><br>
     <a type="button" href="<?= base_url()?>" class="btn btn-danger btn-block btn-flat">Kembali Ke Halaman Utama</a>
-
+ -->
   </div>
   <!-- /.login-box-body -->
 </div>
