@@ -47,10 +47,12 @@ class Adminku extends CI_Controller{
            if(password_verify($pass, $pwdb)){
               $s = $sql->result();
               $this->session->set_userdata(['user_logged' => $s]);
-              echo json_encode(array('success' => 1, 'message' => 'Selamat...! Login Berhasil'));
+              // echo json_encode(array('success' => 1, 'message' => 'Selamat...! Login Berhasil'));
+              redirect('adminppdb');
            }
            else{
-              echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+              // echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+              redirect(base_url('adminku'));
            }
         }
        
