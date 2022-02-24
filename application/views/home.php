@@ -3,7 +3,7 @@
 <button style="background:#32C03C;vertical-align:center;height:36px;border-radius:5px">
 <img src="https://web.whatsapp.com/img/favicon/1x/favicon.png"> Whatsapp Kami</button></a> -->
 
-<a class="wafixed" href="https://wa.me/62823928XXX" target="_blank">
+<a class="wafixed" href="https://wa.me/6282335298564?text=*Assalmualaikum%20Wr.%20Wb*%0A%0APerkenalkan...%20Saya%20%3A%0A%0ANama%20%3A%20%0AAlamat%20%3A%0A%0ASaya%20Mau%20Konsultasi%20Mengenai%20*SMK%20Putra%20Bangsa*" target="_blank">
 <!--   <span class="fa-stack fa-lg">
   <i class="fa fa-circle fa-stack-2x text-success"></i>
   <i class="fa fa-whatsapp fa-stack-1x fa-inverse"></i>
