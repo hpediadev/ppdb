@@ -359,7 +359,7 @@
                 </div>
 
                 <div class="item row">
-                    <span class="icon col-2 col-sm-1"><i class="fa fa-mobile-alt"></i></span>
+                    <span class="icon col-2 col-sm-1"><i class="fa fa-phone"></i></span>
                     <div class="content col-10 col-sm-11">
                         <h3>Let's Talk</h3>
                         <p>   +62 878-3470-2726 / +62 823-3529-8564</p>
