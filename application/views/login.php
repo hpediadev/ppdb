@@ -9,7 +9,7 @@
   </div>
     <!-- <p class="login-box-msg">Sign in to start your session</p> -->
 
-    <form id="logisn" method="post" action="<?= base_url('adminku/login')?>">
+    <form id="login" method="post" actison="<?= base_url('adminku/login')?>">
       <div class="form-group has-feedback">
         <input type="text" id="email" name="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
