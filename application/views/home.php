@@ -355,19 +355,14 @@
             <!-- contact info -->
               <div class="col-lg-12">
                 <div class="item row">
-                    <span class="icon col-2 col-sm-1"><i class="fa fa-map-marker-alt"></i></span>
-                    <div class="content col-10 col-sm-11">
-                        <h3>Our Location</h3>
-                        <p>2659 King Autostrad Street, Toronto, ON L6H 6X5 Canada</p>
-                    </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1980.2838477163425!2d113.5607223!3d-6.9421554!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd9cf7792deab95%3A0x8302802cc08cb4ca!2sSMK%20PUTRA%20BANGSA!5e0!3m2!1sid!2sid!4v1641305283105!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
 
                 <div class="item row">
                     <span class="icon col-2 col-sm-1"><i class="fa fa-mobile-alt"></i></span>
                     <div class="content col-10 col-sm-11">
                         <h3>Let's Talk</h3>
-                        <p>Phone : +12 3 1462 2249, 2248</p>
-                        <p>Fax : +12 9 1462 2238, 2248</p>
+                        <p>   +62 878-3470-2726 / +62 823-3529-8564</p>
                     </div>
                 </div>
 
@@ -375,8 +370,7 @@
                     <span class="icon col-2 col-sm-1"><i class="fa fa-envelope"></i></span>
                     <div class="content col-10 col-sm-11">
                         <h3>E-mail Us</h3>
-                        <p>Support : info@company.com</p>
-                        <p>Sales : info@example.com</p>
+                        <p> Admin :  ppdb@smkpbwaru.sch.id</p>
                     </div>
                 </div>
               </div>
