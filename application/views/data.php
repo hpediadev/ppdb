@@ -1610,7 +1610,7 @@ $(document).ready(function() {
   
   $('input[type="text"]').on('keyup',function(e){
     let teks = $(this).val();
-    let charAggree = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWAXYZ. ";
+    let charAggree = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWAXYZ. -";
      
     let teksSplit = teks.split("");
     let teksOke = [];

@@ -237,13 +237,13 @@ class Dashboard extends CI_Controller{
 
           $result= $this->Proses->updateData('siswabaru',$dataku, $where);
           if($result>0){
-            echo json_encode(array('success' => 1, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+            echo json_encode(array('success' => 1, 'message' => 'Upload Berkas Berhasil'));
           }else{
-            echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+            echo json_encode(array('success' => 0, 'message' => 'Upload Berkas Gagal'));
           }
         }
         else{
-          echo json_encode(array('success' => 0, 'message' => 'Pendaftaran Gagal, Cek Data Yang Dimasukkan'));
+          echo json_encode(array('success' => 0, 'message' => 'Berkasi Harus Dalam Format gif|jpg|png|jpeg|pdf'));
         }
   }
 
