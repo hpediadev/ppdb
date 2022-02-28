@@ -34,10 +34,9 @@
                 <span> <i class="fa fa-envelope"></i> <a href="#">ppdb@smkpbwaru.sch.id</a></span>
               </div>
               <div class="col-md-3">
-                <a href="#"><i class="fa fa-facebook-f"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-linkedin-in"></i></a>
+                <a href="https://www.youtube.com/channel/UCIOkt5QNTHMTIKPD9KPeH1Q"><i class="fa fa-youtube"></i></a>
+                <a href="https://facebook.com/smkp.waru"><i class="fa fa-facebook-f"></i></a>
+                <a href="https://instagram.com/smkpb.waru"><i class="fa fa-instagram"></i></a>
               </div>
             </div>
           </dir>
