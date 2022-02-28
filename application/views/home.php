@@ -61,7 +61,7 @@
                           <h3>Digital School & Industrial Class</h3>
                           <p>Satu-satunya sekolah yang berbasis digital dan dipadukan dengan kelas industri, SMK Putra Bangsa Siap Mencetak Anda Berjiwa Entrepreneur, Intelektual dan Berakhlakul Karimah</p>
 
-                          <h6>Penerimaan Peserta Didik Baru Akan Dimulai Dalam</h6>
+                          <!-- <h6>Penerimaan Peserta Didik Baru Akan Dimulai Dalam</h6> -->
                           <!-- <div id="flipdown" class="flipdown"></div> -->
                           <a class="butn" href="<?= base_url('daftar')?>"> <span>Ayo Daftar Sekarang</span> </a>
 
