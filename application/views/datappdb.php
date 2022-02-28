@@ -5,7 +5,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Responsive Hover Table</h3>
+              <h3 class="box-title">Daftar Calon Peserta Didik Baru</h3>
                   <script src="geo-min.js" type="text/javascript" charset="utf-8"></script>
     <script>
         if(geo_position_js.init()){
